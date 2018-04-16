@@ -2,7 +2,7 @@ package pojo;
 
 public class User {
 	int user_sno;
-	String user;
+	String user_nickname;
 	String user_avatar;
 	String user_sex;
 	int user_tel;
@@ -13,11 +13,12 @@ public class User {
 	public void setUser_sno(int user_sno) {
 		this.user_sno = user_sno;
 	}
-	public String getUser() {
-		return user;
+	
+	public String getUser_nickname() {
+		return user_nickname;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
 	}
 	public String getUser_avatar() {
 		return user_avatar;

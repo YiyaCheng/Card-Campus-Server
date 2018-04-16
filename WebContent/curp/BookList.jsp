@@ -55,7 +55,7 @@
               </c:forEach>  
             </tbody>
         </table>                 
-        <p><a href="/SSMBook/curp/BookAdd.jsp">Add</a></p>
+        <p><a href="/Card-Campus-Server/curp/BookAdd.jsp">Add</a></p>
  
          
         

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+	<select id="userList" resultType="User">
+		select * from user_info
+	</select>
+	
+	<insert id="addUser" parameterType="User">
+		insert into user_info (user_sno,user_nickname,user_avatar,user_sex,user_tel,user_qq) 
+		values(#{user_sno},'123','http://p3as6e9rs.bkt.clouddn.com/20180128.jpg','女',110,123333)
+	</insert>
+	
+	<delete id="deleteUser" parameterType="User">
+		delete from user_info where user_sno=#{user_sno}
+	</delete>
+	<select id="getUserBySno" parameterType="int" resultType="User">
+		select * from user_info where user_sno=#{user_sno}
+	</select>
+	<update id="updateUser" parameterType="User">
+		update user_info set user_nickname=#{user_nickname},user_avatar=#{user_avatar},user_sex=#{user_sex},user_tel=#{user_tel},user_qq=#{user_qq} where user_sno=#{user_sno}
+	</update>
+</mapper>

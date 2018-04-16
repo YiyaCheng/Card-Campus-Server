@@ -1,6 +1,5 @@
 package pojo;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 
 public class LoveReply {
