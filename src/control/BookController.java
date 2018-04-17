@@ -37,7 +37,7 @@ public class BookController {
 		//mav存放转发到jsp页面的参数
 		mav.addObject("cs",cs);//mav相当于一个hashmap
 		//放入将要跳转的jsp文件名
-		mav.setViewName("BookList");
+		mav.setViewName("curp/BookList");
 		return mav;
 	}
 	
@@ -50,7 +50,7 @@ public class BookController {
 		//mav存放转发到jsp页面的参数
 		mav.addObject("cs",cs);//mav相当于一个hashmap
 		//放入将要跳转的jsp文件名
-		mav.setViewName("BookList");
+		mav.setViewName("curp/BookList");
 		return mav;
 	}
 	
@@ -62,7 +62,7 @@ public class BookController {
 		//mav存放转发到jsp页面的参数
 		mav.addObject("book",book);//mav相当于一个hashmap
 		//放入将要跳转的jsp文件名
-		mav.setViewName("BookEdit");
+		mav.setViewName("curp/BookEdit");
 		return mav;
 	}
 	
@@ -74,7 +74,7 @@ public class BookController {
 		//mav存放转发到jsp页面的参数
 		mav.addObject("cs",cs);//mav相当于一个hashmap
 		//放入将要跳转的jsp文件名
-		mav.setViewName("BookList");
+		mav.setViewName("curp/BookList");
 		return mav;
 	}
 }

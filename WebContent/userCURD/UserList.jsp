@@ -2,66 +2,68 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>Insert title here</title>
+<%
+	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
+%>
+<script type="text/javascript"
+	src="${APP_PATH }/static/js/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet"
+	href="${APP_PATH }/static/bootstrap/css/bootstrap.min.css">
+<script src="${APP_PATH }/static/bootstrap/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-table {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-table thead tr th {
-	background-color: #fcb69f;
-	font-size: 15px;
-	border: 1px solid #9DB3C5;
-	padding: 1px;
-	
-	text-align: center;
-	margin: 20px auto;
-}
-
-table tbody tr td {
-	border: 1px solid black;
-	padding: 3px;
-}
-</style>
-
-
-</head>
 <body>
-<div  align="center">
-   <h2>用户列表</h2>
-        <table cellspacing="0">
-            <thead>
-                <tr>
-                    <th>select</th>
-                    <th>昵称</th>
-                    <th>头像</th>
-                    <th>性别</th>
-                    <th>手机号</th>
-                    <th>QQ</th>
-                    <th>删除</th>
-                </tr>
-            </thead>
-            <tbody> 
-              <c:forEach items="${user}" var="c" varStatus="st">
-              	<tr>
-              		<td></td>
-              		<td>${c.user_nickname}</td><!-- isbn一定要小写不知道为什么 -->
-              		<td>${c.user_avatar}</td>
-              		<td>${c.user_sex}</td>
-              		<td>${c.user_tel}</td>
-              		<td>${c.user_qq}</td>
-              		<td>
+<div  class="container">
+	<div class="row">
+    	<div class = "col-md-8 col-md-offset-2">
+  			<div class = "panel panel-default">
+  				<div class = "panel-heading">
+  					<div class = "row">
+  						<h1 class = "col-md-5">用户列表</h1>
+  						<form action="findByName" class = "col-md-5" style="margin:20px 0 10px 0;" id = "form1">
+  							<div class = "input-group">
+	  							<input type ="text" name ="name" class="form-control" placeholder = "请输入歌名"/>
+	  							<span class = "input-group-addon btn" id = "search">搜索</span>
+  							</div>
+  						</form>
+  						<div class = "col-md-2" style ="margin-top:20px">
+  							<a class="btn btn-default" href = "toAdd" role = "button">
+					    	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增用户
+					    	</a>
+  						</div>
+  					</div>
+  				</div>
+      			<table align="center" class="table table-bordered">
+      				<thead>
+      					<tr>
+      						<td>昵称</td>
+            				<td>头像</td>
+            				<td>性别</td>
+            				<td>手机号</td>
+            				<td>QQ</td>
+            				<td>删除</td>
+        				</tr> 
+        			</thead>
+        			<tbody>
+        			<c:forEach items="${user}" var="c" varStatus="st">
+        				<tr>
+            				<td>${c.user_nickname}</td>
+             				<td>${c.user_avatar}</td>
+           					<td>${c.user_sex}</td>
+           					<td>${c.user_tel}</td>
+           					<td>${c.user_qq}</td>
+          					<td>
               		<!-- deleteUser与UserCOntroller中注解的名字一致 -->
-                    	<a href='deleteUser?user_sno=${c.user_sno}'>Delete</a>
-              		</td>
-              	</tr>
-              </c:forEach>  
-            </tbody>
-        </table>                     
-  </div>
+               				<a class="btn btn=danger btn-xs" href='deleteUser?user_sno=${c.user_sno}'>
+                				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除
+               				</a>
+             				</td>
+          				</tr>
+        			</c:forEach>  
+        			</tbody>
+      			</table>
+      	 	</div>
+      	</div> 
+  	</div>                    
+</div>
 </body>
 </html>
