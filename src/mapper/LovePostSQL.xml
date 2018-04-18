@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.LovePostMapper">
+
+	<select id="lovepostList" resultType="LovePost">
+		select * from love_post
+	</select>
+	
+	<insert id="addLovePost" parameterType="LovePost">
+		insert into love_post (love_id,love_username,is_anonymous,love_content,love_title,love_time) 
+		values(#{love_id},#{love_username},#{is_anonymous},#{love_content},#{love_title},#{love_time})
+	</insert>
+	
+	<delete id="deleteLovePost" parameterType="LovePost">
+		delete from love_post where love_id=#{love_id}
+	</delete>
+	<select id="getLovePost" parameterType="int" resultType="LovePost">
+		select * from love_post where love_id=#{love_id}
+	</select>
+	<update id="updateLovePost" parameterType="LovePost">
+		update love_post set love_username=#{love_username},is_anonymous=#{is_anonymous},love_content=#{love_content},love_title=#{love_title},love_time=#{love_time} where love_id=#{love_id}
+	</update>
+</mapper>

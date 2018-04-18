@@ -58,7 +58,7 @@
 						<!-- 二级菜单 -->
 						<!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
 						<ul id="userMenu" class="nav nav-list collapse menu-second">
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')"><i class="fa fa-users"></i> 用户列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-users"></i> 用户列表</a></li>
 						</ul>
 						
 						
@@ -87,7 +87,7 @@
 							<i class="fa fa-globe"></i>&nbsp; 表白墙模块管理 <span class="sr-only">(current)</span></a>
 						</li> 
 						<ul id="LoveMenu" class="nav nav-list collapse menu-second">
-							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-list-alt"></i> 表白帖子列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLovePost')"><i class="fa fa-list-alt"></i> 表白帖子列表</a></li>
 							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-list-alt"></i> 表白帖子回复列表</a></li>
 						</ul>
 						
@@ -95,7 +95,7 @@
 							<i class="fa fa-globe"></i>&nbsp; 二手书籍模块管理 <span class="sr-only">(current)</span></a>
 						</li> 
 						<ul id="BookMenu" class="nav nav-list collapse menu-second">
-							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-list-alt"></i> 图书列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listBookPost')"><i class="fa fa-list-alt"></i> 图书列表</a></li>
 						</ul>
 					</ul>
 					
