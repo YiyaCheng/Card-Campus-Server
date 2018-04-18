@@ -1,19 +1,20 @@
 package pojo;
 
 public class User {
-	int user_sno;
+	String user_sno;
 	String user_nickname;
 	String user_avatar;
 	String user_sex;
-	int user_tel;
-	int user_qq;
-	public int getUser_sno() {
+	String user_tel;
+	String user_qq;
+	
+	
+	public String getUser_sno() {
 		return user_sno;
 	}
-	public void setUser_sno(int user_sno) {
+	public void setUser_sno(String user_sno) {
 		this.user_sno = user_sno;
 	}
-	
 	public String getUser_nickname() {
 		return user_nickname;
 	}
@@ -32,17 +33,18 @@ public class User {
 	public void setUser_sex(String user_sex) {
 		this.user_sex = user_sex;
 	}
-	public int getUser_tel() {
+	public String getUser_tel() {
 		return user_tel;
 	}
-	public void setUser_tel(int user_tel) {
+	public void setUser_tel(String user_tel) {
 		this.user_tel = user_tel;
 	}
-	public int getUser_qq() {
+	public String getUser_qq() {
 		return user_qq;
 	}
-	public void setUser_qq(int user_qq) {
+	public void setUser_qq(String user_qq) {
 		this.user_qq = user_qq;
 	}
+	
 	
 }
