@@ -23,7 +23,7 @@ public interface DaiPostMapper {
 	public DaiPost getDaifood(int dpost_id);
 	public void updateDaifood(DaiPost daipost);
 	
-	//3.代拿快递
+	//3.代拿快递 
 	public List<DaiPost> daideliverList();
 	public void addDaideliver(@Param("daipost")DaiPost daipost,@Param("user")User user);
 	public void deleteDaideliver(int dpost_id);
