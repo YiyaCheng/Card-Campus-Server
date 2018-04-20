@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.QuestionReplyMapper">
+<resultMap type="QuestionReply" id="questionreplyResultMap"> 
+  <result column="breply_id" property="breply_id" /> 
+  <result column="breply_content" property="breply_content" /> 
+  <result column="breply_time" property="breply_time" />
+  
+  <!-- association处理has-a关系 --> 
+  <!--注意：这种方式javaType必须指定，表示supervisor的类型是Teacher，否则会报错 --> 
+  <association property="user" javaType="User"> 
+   <!-- User自身的属性与数据库字段的映射 --> 
+   <result property="user_sno" column="user_sno"/> 
+   <result property="user_nickname" column="user_nickname"/> 
+   <result property="user_avatar" column="user_avatar"/> 
+   <result property="user_sex" column="user_sex"/> 
+   <result property="user_tel" column="user_tel"/> 
+   <result property="user_qq" column="user_qq"/> 
+  </association> 
+ 
+  <association property="questionPost" javaType="QuestionPost"> 
+  <!--  QuestionPost自身的属性与数据库字段的映射  -->
+   <result property="bpost_id" column="bpost_id"/>
+   <result property="bpost_time" column="bpost_time"/> 
+   <result property="bpost_content" column="bpost_content"/> 
+   <result property="bpost_title" column="bpost_title"/> 
+  </association>
+ </resultMap>
+	<select id="questionreplyList" resultMap="questionreplyResultMap">
+		select * 
+		from question_reply,user_info,question_post
+		where question_reply.user_sno = user_info.user_sno and question_post.bpost_id=question_reply.bpost_id
+	</select>
+	
+	<insert id="addQuestionReply">
+		insert into question_reply (breply_id,bpost_id,user_sno,breply_content,breply_time) 
+		values(#{questionreply.breply_id},#{questionpost.bpost_id},#{user.user_sno},#{questionreply.breply_content},#{questionreply.breply_time})
+	</insert>
+	
+	<delete id="deleteQuestionReply" parameterType="QuestionReply">
+		delete from question_reply where breply_id=#{breply_id}
+	</delete>
+	<select id="getQuestionReply" parameterType="int" resultType="QuestionReply">
+		select * from question_reply where breply_id=#{breply_id}
+	</select>
+	<update id="updateQuestionReply" parameterType="QuestionReply">
+		update question_reply set breply_content=#{breply_content},breply_time=#{breply_time} where breply_id=#{breply_id}
+	</update>
+</mapper>

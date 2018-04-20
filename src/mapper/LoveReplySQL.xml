@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.LoveReplyMapper">
+<resultMap type="LoveReply" id="lovereplyResultMap"> 
+  <result column="lreply_id" property="lreply_id" /> 
+  <result column="lreply_content" property="lreply_content" /> 
+  <result column="lreply_time" property="lreply_time" />
+  
+  <!-- association处理has-a关系 --> 
+  <!--注意：这种方式javaType必须指定，表示supervisor的类型是Teacher，否则会报错 --> 
+  <association property="user" javaType="User"> 
+   <!-- User自身的属性与数据库字段的映射 --> 
+   <result property="user_sno" column="user_sno"/> 
+   <result property="user_nickname" column="user_nickname"/> 
+   <result property="user_avatar" column="user_avatar"/> 
+   <result property="user_sex" column="user_sex"/> 
+   <result property="user_tel" column="user_tel"/> 
+   <result property="user_qq" column="user_qq"/> 
+  </association> 
+ 
+  <association property="lovepost" javaType="LovePost"> 
+  <!--  LovePost自身的属性与数据库字段的映射  -->
+   <result property="love_id" column="love_id"/> 
+   <result property="love_username" column="love_username"/> 
+   <result property="is_anonymous" column="is_anonymous"/> 
+   <result property="love_content" column="love_content"/> 
+   <result property="love_title" column="love_title"/> 
+   <result property="love_time" column="love_time"/> 
+  </association>
+ </resultMap>
+	<select id="lovereplyList" resultMap="lovereplyResultMap">
+		select * 
+		from love_reply,user_info,love_post
+		where love_reply.user_sno = user_info.user_sno and love_post.love_id=love_reply.love_id
+	</select>
+	
+	<insert id="addLoveReply">
+		insert into love_reply (lreply_id,love_id,user_sno,lreply_content,lreply_time) 
+		values(#{lovereply.lreply_id},#{lovepost.love_id},#{user.user_sno},#{lovereply.lreply_content},#{lovereply.lreply_time})
+	</insert>
+	
+	<delete id="deleteLoveReply" parameterType="LoveReply">
+		delete from love_reply where lreply_id=#{lreply_id}
+	</delete>
+	<select id="getLoveReply" parameterType="int" resultType="LoveReply">
+		select * from love_reply where lreply_id=#{lreply_id}
+	</select>
+	<update id="updateLoveReply" parameterType="LoveReply">
+		update love_reply set lreply_content=#{lreply_content},lreply_time=#{lreply_time} where lreply_id=#{lreply_id}
+	</update>
+</mapper>

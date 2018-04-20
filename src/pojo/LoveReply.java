@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class LoveReply {
 	User user;
-	int lrepy_id;
+	int lreply_id;
 	LovePost lovepost;
 	String lreply_content;
 	Timestamp lreply_time;
@@ -14,11 +14,12 @@ public class LoveReply {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getLrepy_id() {
-		return lrepy_id;
+	
+	public int getLreply_id() {
+		return lreply_id;
 	}
-	public void setLrepy_id(int lrepy_id) {
-		this.lrepy_id = lrepy_id;
+	public void setLreply_id(int lreply_id) {
+		this.lreply_id = lreply_id;
 	}
 	public LovePost getLovepost() {
 		return lovepost;

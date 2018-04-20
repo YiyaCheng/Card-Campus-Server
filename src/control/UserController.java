@@ -24,7 +24,7 @@ public class UserController {
 		//mav存放转发到jsp页面的参数
 		mav.addObject("user",alluser);//mav相当于一个hashmap
 		//放入将要跳转的jsp文件名
-		mav.setViewName("userCURD/UserList");
+		mav.setViewName("UserCurd/UserList");
 		return mav;//return给框架
 	}
 	
@@ -37,7 +37,7 @@ public class UserController {
 		//mav存放转发到jsp页面的参数
 		mav.addObject("user",alluser);//mav相当于一个hashmap
 		//放入将要跳转的jsp文件名
-		mav.setViewName("userCURD/UserList");
+		mav.setViewName("UserCurd/UserList");
 		return mav;
 	}
 }

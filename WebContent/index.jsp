@@ -37,7 +37,7 @@
         		
 				<!-- <div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">			            
-						<li><a href="###" onclick="showAtRight('/Card-Campus-Server/WebContent/userCURD/UserList.jsp')"><i class="fa fa-users"></i> 用户列表</a></li>	
+						<li><a href="###" onclick="showAtRight('/Card-Campus-Server/WebContent/UserCURD/UserList.jsp')"><i class="fa fa-users"></i> 用户列表</a></li>	
 						<li><a href="###" onclick="showAtRight('UserList.jsp')"><i class="fa fa-list-alt"></i> 产品列表</a></li>
 						<li><a href="###" onclick="showAtRight('UserList.jsp')" ><i class="fa fa-list"></i> 订单列表</a></li>	
 					</ul>
@@ -66,12 +66,12 @@
 							<i class="fa fa-file-text"></i>&nbsp; 代代代模块管理 <span class="sr-only">(current)</span></a>
 						</li> 
 						<ul id="DaiMenu" class="nav nav-list collapse menu-second">
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')" ><i class="fa fa-list"></i> 代课列表</a></li>
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')" ><i class="fa fa-list"></i> 代拿外卖列表</a></li>
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')" ><i class="fa fa-list"></i> 代活动列表</a></li>
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')" ><i class="fa fa-list"></i> 代健步走列表</a></li>
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')" ><i class="fa fa-list"></i> 代购列表</a></li>
-							<li><a href="###" onclick="showAtRight('userCURD/UserList.jsp')" ><i class="fa fa-list"></i> 代拿快递列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaike')" ><i class="fa fa-list"></i> 代课列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaifood')" ><i class="fa fa-list"></i> 代拿外卖列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaiactivity')" ><i class="fa fa-list"></i> 代活动列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaiwalk')" ><i class="fa fa-list"></i> 代健步走列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaibuy')" ><i class="fa fa-list"></i> 代购列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaideliver')" ><i class="fa fa-list"></i> 代拿快递列表</a></li>
 						</ul>
 						
 						
@@ -79,8 +79,8 @@
 							<i class="fa fa-globe"></i>&nbsp; 百事通模块管理 <span class="sr-only">(current)</span></a>
 						</li> 
 						<ul id="BaishitongMenu" class="nav nav-list collapse menu-second">
-							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-list-alt"></i> 百事通帖子列表</a></li>
-							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-list-alt"></i> 百事通回复列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listQuestionPost')"><i class="fa fa-list-alt"></i> 百事通帖子列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listQuestionReply')"><i class="fa fa-list-alt"></i> 百事通回复列表</a></li>
 						</ul>
 						
 						<li><a href="#LoveMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -88,7 +88,7 @@
 						</li> 
 						<ul id="LoveMenu" class="nav nav-list collapse menu-second">
 							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLovePost')"><i class="fa fa-list-alt"></i> 表白帖子列表</a></li>
-							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i class="fa fa-list-alt"></i> 表白帖子回复列表</a></li>
+							<li><a href="###" onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLoveReply')"><i class="fa fa-list-alt"></i> 表白帖子回复列表</a></li>
 						</ul>
 						
 						<li><a href="#BookMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -104,19 +104,104 @@
 		</div>
 
 <!-- 右侧内容展示==================================================   -->   		
- 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+ 				<!-- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header"><i class="fa fa-cog fa-spin"></i>&nbsp;控制台</h1>
 						
-						<!-- 载入左侧菜单指向的jsp（或html等）页面内容 -->
+						载入左侧菜单指向的jsp（或html等）页面内容
           				<div id="content">
           	 
        						<h4>    				
    								<strong>使用指南：</strong><br>
    								<br><br>默认页面内容……
-       						</h4>         						
+       						</h4>    
+       						     						
           					
           				</div>  
-				</div> 
+				</div> --> 
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<h1 class="page-header"><i class="fa fa-cog fa-spin"></i>&nbsp;控制台</h1>
+						
+						<!-- 载入左侧菜单指向的jsp（或html等）页面内容 -->
+          				<div id="content">
+          	 
+       						<html>
+<%
+	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
+%>
+<script type="text/javascript"
+	src="${APP_PATH }/static/js/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet"
+	href="${APP_PATH }/static/bootstrap/css/bootstrap.min.css">
+<script src="${APP_PATH }/static/bootstrap/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+      .container{
+      	margin-top:20px
+      	}  
+</style>
+<title>用户列表</title>
+<body>
+<div  class="container">
+	<div class="row">
+    	<div class = "">
+  			<div class = "panel panel-default">
+  				<div class = "panel-heading">
+  					<div class = "row">
+  						<h1 class = "col-md-5">用户列表</h1>
+  						<form action="findByName" class = "col-md-5" style="margin:20px 0 10px 0;" id = "form1">
+  							<div class = "input-group">
+	  							<input type ="text" name ="name" class="form-control" placeholder = "请输入学号"/>
+	  							<span class = "input-group-addon btn" id = "search">搜索</span>
+  							</div>
+  						</form>
+  						<div class = "col-md-2" style ="margin-top:20px">
+  							<a class="btn btn-default" href = "toAdd" role = "button">
+					    	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增用户
+					    	</a>
+  						</div>
+  					</div>
+  				</div>
+      			<table align="center" class="table table-bordered">
+      				<thead>
+      					<tr>
+      						<td>学号</td>
+      						<td>昵称</td>
+            				<td>头像</td>
+            				<td>性别</td>
+            				<td>手机号</td>
+            				<td>QQ</td>
+            				<td>删除
+        				</tr> 
+        			</thead>
+        			<tbody>
+        			<c:forEach items="${user}" var="c" varStatus="st">
+        				<tr>
+        					<td>${c.user_sno}</td>
+            				<td>${c.user_nickname}</td>
+             				<td>${c.user_avatar}</td>
+           					<td>${c.user_sex}</td>
+           					<td>${c.user_tel}</td>
+           					<td>${c.user_qq}</td>
+          					<td>
+              		<!-- deleteUser与UserCOntroller中注解的名字一致 -->
+               				<a role="button" class="btn btn=danger btn-xs" href='deleteUser?user_sno=${c.user_sno}'>
+                				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除
+               				</a>
+             				</td>
+          				</tr>
+        			</c:forEach>  
+        			</tbody>
+      			</table>
+      	 	</div>
+      	</div> 
+  	</div>                    
+</div>
+</body>
+</html> 
+       						     						
+          					
+          				</div>  
+				</div>
 		
 		
 		<script type="text/javascript">
