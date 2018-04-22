@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<%
+<%-- <%
 	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
 %>
 <script type="text/javascript"
@@ -15,7 +15,7 @@
       .container{
       	margin-top:20px
       	}  
-</style>
+</style> --%>
 <title>情书列表</title>
 <body>
 <div  class="container">

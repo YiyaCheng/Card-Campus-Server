@@ -2,20 +2,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<%
+<%-- <%
 	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
 %>
 <script type="text/javascript"
 	src="${APP_PATH }/static/js/jquery-2.1.1.min.js"></script>
 <link rel="stylesheet"
 	href="${APP_PATH }/static/bootstrap/css/bootstrap.min.css">
-<script src="${APP_PATH }/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="${APP_PATH }/static/bootstrap/js/bootstrap.min.js"></script> --%>
 
-<style type="text/css">
+<!-- <style type="text/css">
       .container{
       	margin-top:20px
       	}  
-</style>
+</style> -->
 <title>百事通回复列表</title>
 <body>
 <div  class="container">
