@@ -36,8 +36,9 @@ public class UserController {
 		List<User> alluser=userService.userList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("user",alluser);//mav相当于一个hashmap
+		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listUser");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("UserCurd/UserList");
+		mav.setViewName("index");
 		return mav;
 	}
 }

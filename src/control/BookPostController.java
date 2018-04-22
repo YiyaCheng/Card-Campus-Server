@@ -37,8 +37,9 @@ public class BookPostController {
 		List<BookPost> allbookpost=bookPostService.bookpostList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("bookpost",allbookpost);//mav相当于一个hashmap
+		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listBookPost");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("BookPostCurd/BookPostList");
+		mav.setViewName("index");
 		return mav;
 	}
 }

@@ -35,8 +35,9 @@ public class LoveReplyController {
 		List<LoveReply> alllovereply=loveReplyService.lovereplyList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("lovereply",alllovereply);//mav相当于一个hashmap
+		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listLoveReply");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("LovePostReplyCurd/LovePostReplyList");
+		mav.setViewName("index");
 		
 		return mav;
 	}
