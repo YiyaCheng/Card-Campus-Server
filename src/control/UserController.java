@@ -29,7 +29,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("deleteUser")
-	public ModelAndView deleteUser(int user_sno) {
+	public ModelAndView deleteUser(String user_sno) {
 		ModelAndView mav=new ModelAndView();
 		userService.deleteUser(user_sno);
 		//插入完成后马上回到list列表
