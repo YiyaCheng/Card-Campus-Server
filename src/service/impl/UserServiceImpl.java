@@ -25,13 +25,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void deleteUser(int user_sno) {
+	public void deleteUser(String user_sno) {
 		// TODO Auto-generated method stub
 		userMapper.deleteUser(user_sno);
 	}
 
 	@Override
-	public User getUserBySno(int user_sno) {
+	public User getUserBySno(String user_sno) {
 		// TODO Auto-generated method stub
 		return userMapper.getUserBySno(user_sno);
 	}
