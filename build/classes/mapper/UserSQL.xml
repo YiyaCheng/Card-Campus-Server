@@ -3,11 +3,6 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
-
-
-
-
-
 	<select id="userList" resultType="User">
 		select * from user_info
 	</select>
@@ -20,7 +15,7 @@
 	<delete id="deleteUser" parameterType="User">
 		delete from user_info where user_sno=#{user_sno}
 	</delete>
-	<select id="getUserBySno" parameterType="String" resultType="User">
+	<select id="getUserBySno" parameterType="int" resultType="User">
 		select * from user_info where user_sno=#{user_sno}
 	</select>
 	<update id="updateUser" parameterType="User">

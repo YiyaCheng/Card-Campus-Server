@@ -61,7 +61,7 @@ public class DaiPostController {
 	 */
 	//处理来自客户端的请求，并将json格式的数据处理结果返回。
     @RequestMapping("getDaikeList")
-    public void getUserFromClient(HttpServletRequest request, HttpServletResponse response){
+    public void getDaikeFromClient(HttpServletRequest request, HttpServletResponse response){
         JSONObject jsonObject = new JSONObject();
         List<DaiPost> alldaike=daiPostService.daikeList();
         JSONArray arrayDaike = JSONArray.fromObject(alldaike);
@@ -135,6 +135,54 @@ public class DaiPostController {
 		return mav;
 	}
 	
+	@RequestMapping("getDaifoodList")
+    public void getDaifoodFromClient(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        List<DaiPost> alldaifood=daiPostService.daifoodList();
+        JSONArray arrayDaifood = JSONArray.fromObject(alldaifood);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayDaifood.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
+	
+	
+	
+	
+	
 	/**
 	 * 3.代拿快递的相关操作
 	 */
@@ -162,6 +210,50 @@ public class DaiPostController {
 		mav.setViewName("index");
 		return mav;
 	}
+	
+	@RequestMapping("getDaideliverList")
+    public void getDaideliverFromClient(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        List<DaiPost> alldaideliver=daiPostService.daideliverList();
+        JSONArray arrayDaideliver = JSONArray.fromObject(alldaideliver);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayDaideliver.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
 	
 	/**
 	 * 4.代活动的相关操作
@@ -191,6 +283,49 @@ public class DaiPostController {
 		return mav;
 	}
 	
+	@RequestMapping("getDaiactivityList")
+    public void getDaiactivityFromClient(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        List<DaiPost> alldaiactivity=daiPostService.daiactivityList();
+        JSONArray arrayDaiactivity = JSONArray.fromObject(alldaiactivity);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayDaiactivity.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
 	
 	/**
 	 * 5.代健步走的相关操作
@@ -220,6 +355,51 @@ public class DaiPostController {
 		return mav;
 	}
 	
+	@RequestMapping("getDaiwalkList")
+    public void getDaiwalkFromClient(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        List<DaiPost> alldaiwalk=daiPostService.daiwalkList();
+        JSONArray arrayDaiwalk = JSONArray.fromObject(alldaiwalk);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayDaiwalk.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
+	
+	
 	/**
 	 * 6.代购的相关操作
 	 */
@@ -247,4 +427,48 @@ public class DaiPostController {
 		mav.setViewName("index");
 		return mav;
 	}
+	
+	@RequestMapping("getDaibuyList")
+    public void getDaibuyFromClient(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        List<DaiPost> alldaibuy=daiPostService.daibuyList();
+        JSONArray arrayDaibuy = JSONArray.fromObject(alldaibuy);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayDaibuy.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
 }
