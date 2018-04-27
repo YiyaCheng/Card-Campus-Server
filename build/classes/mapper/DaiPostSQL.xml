@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.DaiPostMapper">
+
+ <resultMap type="DaiPost" id="daipostResultMap"> 
+  <result column="dpost_id" property="dpost_id" /> 
+  <result column="dpost_time" property="dpost_time" /> 
+  <result column="dpost_content" property="dpost_content" /> 
+  <result column="dpost_title" property="dpost_title"/> 
+  <result column="dpost_type" property="dpost_type"/> 
+  <result column="is_solved" property="is_solved"/> 
+  <!-- association处理has-a关系 --> 
+  <!--注意：这种方式javaType必须指定，表示supervisor的类型是Teacher，否则会报错 --> 
+  <association property="user" javaType="User"> 
+   <!-- 教师自身的属性与数据库字段的映射 --> 
+   <result property="user_sno" column="user_sno"/> 
+   <result property="user_nickname" column="user_nickname"/> 
+   <result property="user_avatar" column="user_avatar"/> 
+   <result property="user_sex" column="user_sex"/> 
+   <result property="user_tel" column="user_tel"/> 
+   <result property="user_qq" column="user_qq"/> 
+  </association> 
+ </resultMap>
+
+	
+	<!-- 1.代课 -->
+	<select id="daikeList" resultMap="daipostResultMap">
+		select * 
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno and dpost_type='代课'
+	</select>
+	
+	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
+	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
+	<insert id="addDaike">
+		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	</insert>
+	
+	<delete id="deleteDaike" parameterType="DaiPost">
+		delete from dai_post where dpost_id=#{dpost_id}
+	</delete>
+	
+	<select id="getDaike" parameterType="int" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{dpost_id}
+	</select>
+	
+	<update id="updateDaike" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},dpost_type=#{dpost_type},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+	
+	<!-- 2.代拿外卖 -->
+	<select id="daifoodList" resultMap="daipostResultMap">
+		select * 
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno and dpost_type='代拿外卖'
+	</select>
+	
+	<insert id="addDaifood">
+		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	</insert>
+	
+	<delete id="deleteDaifood" parameterType="DaiPost">
+		delete from dai_post where dpost_id=#{dpost_id}
+	</delete>
+	
+	<select id="getDaifood" parameterType="int" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{dpost_id}
+	</select>
+	
+	<update id="updateDaifood" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},dpost_type=#{dpost_type},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+	
+	<!-- 3.代拿快递  -->
+	<select id="daideliverList" resultMap="daipostResultMap">
+		select * 
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno and dpost_type='代拿快递'
+	</select>
+	
+	<insert id="addDaideliver">
+		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	</insert>
+	
+	<delete id="deleteDaideliver" parameterType="DaiPost">
+		delete from dai_post where dpost_id=#{dpost_id}
+	</delete>
+	
+	<select id="getDaideliver" parameterType="int" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{dpost_id}
+	</select>
+	
+	<update id="updateDaideliver" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},dpost_type=#{dpost_type},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+
+	<!-- 4.代活动  -->
+	<select id="daiactivityList" resultMap="daipostResultMap">
+		select * 
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno and dpost_type='代活动'
+	</select>
+	
+	<insert id="addDaiactivity">
+		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	</insert>
+	
+	<delete id="deleteDaiactivity" parameterType="DaiPost">
+		delete from dai_post where dpost_id=#{dpost_id}
+	</delete>
+	
+	<select id="getDaiactivity" parameterType="int" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{dpost_id}
+	</select>
+	
+	<update id="updateDaiactivity" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},dpost_type=#{dpost_type},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+	
+	<!-- 5.代健步走 -->
+	<select id="daiwalkList" resultMap="daipostResultMap">
+		select * 
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno and dpost_type='代健步走'
+	</select>
+	
+	<insert id="addDaiwalk">
+		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	</insert>
+	
+	<delete id="deleteDaiwalk" parameterType="DaiPost">
+		delete from dai_post where dpost_id=#{dpost_id}
+	</delete>
+	
+	<select id="getDaiwalk" parameterType="int" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{dpost_id}
+	</select>
+	
+	<update id="updateDaiwalk" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},dpost_type=#{dpost_type},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+	
+	<!-- 6.代购 -->
+	<select id="daibuyList" resultMap="daipostResultMap">
+		select * 
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno and dpost_type='代购'
+	</select>
+	
+	<insert id="addDaibuy">
+		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	</insert>
+	
+	<delete id="deleteDaibuy" parameterType="DaiPost">
+		delete from dai_post where dpost_id=#{dpost_id}
+	</delete>
+	
+	<select id="getDaibuy" parameterType="int" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{dpost_id}
+	</select>
+	
+	<update id="updateDaibuy" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},dpost_type=#{dpost_type},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+
+</mapper>

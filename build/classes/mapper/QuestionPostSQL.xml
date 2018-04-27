@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.QuestionPostMapper">
+
+ <resultMap type="QuestionPost" id="questionpostResultMap"> 
+  <result column="bpost_id" property="bpost_id" /> 
+  <result column="bpost_time" property="bpost_time" /> 
+  <result column="bpost_content" property="bpost_content" /> 
+  <result column="bpost_title" property="bpost_title"/> 
+  <!-- association处理has-a关系 --> 
+  <!--注意：这种方式javaType必须指定，表示supervisor的类型是Teacher，否则会报错 --> 
+  <association property="user" javaType="User"> 
+   <!-- 教师自身的属性与数据库字段的映射 --> 
+   <result property="user_sno" column="user_sno"/> 
+   <result property="user_nickname" column="user_nickname"/> 
+   <result property="user_avatar" column="user_avatar"/> 
+   <result property="user_sex" column="user_sex"/> 
+   <result property="user_tel" column="user_tel"/> 
+   <result property="user_qq" column="user_qq"/> 
+  </association> 
+ </resultMap>
+    <!-- 不要用resultType了，用resultMap -->
+	<select id="questionpostList" resultMap="questionpostResultMap">
+		select * 
+		from question_post,user_info
+		where question_post.user_sno = user_info.user_sno
+	</select>
+	
+	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
+	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
+	<insert id="addQuestionPost">
+		insert into question_post (bpost_id,user_sno,bpost_time,bpost_content,bpost_title) 
+		values(#{questionpost.bpost_id},#{user.user_sno},#{questionpost.bpost_time},#{questionpost.bpost_content},#{questionpost.bpost_title})
+	</insert>
+	
+	<delete id="deleteQuestionPost" parameterType="QuestionPost">
+		delete from question_post where bpost_id=#{bpost_id}
+	</delete>
+	<select id="getQuestionPost" parameterType="int" resultType="QuestionPost">
+		select * from question_post where bpost_id=#{bpost_id}
+	</select>
+	<update id="updateQuestionPost" parameterType="QuestionPost">
+		update question_post set bpost_content=#{bpost_content},bpost_title=#{bpost_title},bpost_time=#{bpost_time},where bpost_id=#{bpost_id}
+	</update>
+</mapper>
