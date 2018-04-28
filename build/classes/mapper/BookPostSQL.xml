@@ -6,7 +6,8 @@
 
  <resultMap type="BookPost" id="bookpostResultMap"> 
   <result column="book_id" property="book_id" /> 
-  <result column="book_img" property="book_img" /> 
+  <result column="book_img" property="book_img" />
+  <result column="book_title" property="book_title" /> 
   <result column="book_describe" property="book_describe" /> 
   <result column="book_time" property="book_time"/> 
   <!-- association处理has-a关系 --> 
@@ -31,8 +32,8 @@
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
 	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
 	<insert id="addBookPost">
-		insert into book_post (book_id,book_img,user_sno,book_describe,book_time) 
-		values(#{bookpost.book_id},#{bookpost.book_img},#{user.user_sno},#{bookpost.book_describe},#{bookpost.book_time})
+		insert into book_post (book_id,book_img,user_sno,book_describe,book_time,book_title) 
+		values(#{bookpost.book_id},#{bookpost.book_img},#{user.user_sno},#{bookpost.book_describe},#{bookpost.book_time},#{bookpost.book_title})
 	</insert>
 	
 	<delete id="deleteBookPost" parameterType="BookPost">
@@ -42,6 +43,6 @@
 		select * from book_post where book_id=#{book_id}
 	</select>
 	<update id="updateBookPost" parameterType="BookPost">
-		update book_post set book_img=#{book_img},book_describe=#{book_describe},book_time=#{book_time},where book_id=#{book_id}
+		update book_post set book_img=#{book_img},book_describe=#{book_describe},book_time=#{book_time},book_title=#{book_title} where book_id=#{book_id}
 	</update>
 </mapper>
