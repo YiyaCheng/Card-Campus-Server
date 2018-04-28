@@ -4,8 +4,8 @@
 <html>
 <%-- <%
 	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
-%>
-<script type="text/javascript"
+%> --%>
+<%-- <script type="text/javascript"
 	src="${APP_PATH }/static/js/jquery-2.1.1.min.js"></script>
 <link rel="stylesheet"
 	href="${APP_PATH }/static/bootstrap/css/bootstrap.min.css">
@@ -44,6 +44,7 @@
       						<td>图书编号</td>
       						<td>图书封面</td>
             				<td>发布用户</td>
+            				<td>图书书名</td>
             				<td>图书描述</td>
             				<td>发布时间</td>
             				<td>删除</td>
@@ -56,6 +57,7 @@
             				<td>${c.book_img}</td>
             				<!-- 这样获取属性也可以<td>${c.user.getUser_sno()}</td> -->
              				<td>${c.user.user_nickname}</td>
+             				<td>${c.book_title}</td>
            					<td>${c.book_describe}</td>
           					<td>${c.book_time}</td>
           					<td>
