@@ -10,4 +10,5 @@ public interface QuestionPostService {
 	public void deleteQuestionPost(int bpost_id);
 	public QuestionPost getQuestionPost(int bpost_id);
 	public void updateQuestionPost(QuestionPost questionpost);
+
 }

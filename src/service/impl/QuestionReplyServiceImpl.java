@@ -43,5 +43,10 @@ public class QuestionReplyServiceImpl implements QuestionReplyService {
 		// TODO Auto-generated method stub
 		questionreplyMapper.updateQuestionReply(questionreply);
 	}
+	
+	
+	public List<QuestionReply> getReplysByPostId(int bpost_id){
+		return questionreplyMapper.getReplysByPostId(bpost_id);
+	}
 
 }

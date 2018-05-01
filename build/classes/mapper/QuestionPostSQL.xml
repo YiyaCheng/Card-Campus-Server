@@ -28,6 +28,10 @@
 		where question_post.user_sno = user_info.user_sno
 	</select>
 	
+	
+	
+	
+	
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
 	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
 	<insert id="addQuestionPost">
