@@ -9,13 +9,13 @@
 	src="${APP_PATH }/static/js/jquery-2.1.1.min.js"></script>
 <link rel="stylesheet"
 	href="${APP_PATH }/static/bootstrap/css/bootstrap.min.css">
-<script src="${APP_PATH }/static/bootstrap/js/bootstrap.min.js"></script> 
+<script src="${APP_PATH }/static/bootstrap/js/bootstrap.min.js"></script>
 
 <style type="text/css">
       .container{
       	margin-top:20px
       	}  
-</style>--%>
+</style> --%>
 <title>用户列表</title>
 <body>
 <div  class="container">
@@ -25,7 +25,7 @@
   				<div class = "panel-heading">
   					<div class = "row">
   						<h1 class = "col-md-5">用户列表</h1>
-  						<form action="findByName" class = "col-md-5" style="margin:20px 0 10px 0;" id = "form1">
+  						<!-- <form action="findByName" class = "col-md-5" style="margin:20px 0 10px 0;" id = "form1">
   							<div class = "input-group">
 	  							<input type ="text" name ="name" class="form-control" placeholder = "请输入学号"/>
 	  							<span class = "input-group-addon btn" id = "search">搜索</span>
@@ -35,7 +35,7 @@
   							<a class="btn btn-default" href = "toAdd" role = "button">
 					    	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增用户
 					    	</a>
-  						</div>
+  						</div> -->
   					</div>
   				</div>
       			<table align="center" class="table table-bordered">

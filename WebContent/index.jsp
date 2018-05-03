@@ -67,7 +67,7 @@
 					<!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
 					<ul id="userMenu" class="nav nav-list collapse menu-second">
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listUser')"><i
 								class="fa fa-users"></i> 用户列表</a></li>
 					</ul>
 
@@ -77,22 +77,22 @@
 							代代代模块管理 <span class="sr-only">(current)</span></a></li>
 					<ul id="DaiMenu" class="nav nav-list collapse menu-second">
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaike')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listDaike')"><i
 								class="fa fa-list"></i> 代课列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaifood')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listDaifood')"><i
 								class="fa fa-list"></i> 代拿外卖列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaiactivity')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listDaiactivity')"><i
 								class="fa fa-list"></i> 代活动列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaiwalk')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listDaiwalk')"><i
 								class="fa fa-list"></i> 代健步走列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaibuy')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listDaibuy')"><i
 								class="fa fa-list"></i> 代购列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaideliver')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listDaideliver')"><i
 								class="fa fa-list"></i> 代拿快递列表</a></li>
 					</ul>
 
@@ -103,10 +103,10 @@
 					</a></li>
 					<ul id="BaishitongMenu" class="nav nav-list collapse menu-second">
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listQuestionPost')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listQuestionPost')"><i
 								class="fa fa-list-alt"></i> 百事通帖子列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listQuestionReply')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listQuestionReply')"><i
 								class="fa fa-list-alt"></i> 百事通回复列表</a></li>
 					</ul>
 
@@ -116,10 +116,10 @@
 					</a></li>
 					<ul id="LoveMenu" class="nav nav-list collapse menu-second">
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLovePost')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listLovePost')"><i
 								class="fa fa-list-alt"></i> 表白帖子列表</a></li>
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLoveReply')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listLoveReply')"><i
 								class="fa fa-list-alt"></i> 表白帖子回复列表</a></li>
 					</ul>
 
@@ -129,7 +129,7 @@
 					</a></li>
 					<ul id="BookMenu" class="nav nav-list collapse menu-second">
 						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listBookPost')"><i
+							onclick="showAtRight('http://47.106.148.107:8080/Card-Campus-Server/listBookPost')"><i
 								class="fa fa-list-alt"></i> 图书列表</a></li>
 					</ul>
 				</ul>

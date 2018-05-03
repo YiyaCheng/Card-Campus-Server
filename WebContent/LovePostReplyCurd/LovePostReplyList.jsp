@@ -25,7 +25,7 @@
   				<div class = "panel-heading">
   					<div class = "row">
   						<h1 class = "col-md-5">情书回复列表</h1>
-  						<form action="findByName" class = "col-md-5" style="margin:20px 0 10px 0;" id = "form1">
+  						<!-- <form action="findByName" class = "col-md-5" style="margin:20px 0 10px 0;" id = "form1">
   							<div class = "input-group">
 	  							<input type ="text" name ="name" class="form-control" placeholder = "请输入情书回复标题"/>
 	  							<span class = "input-group-addon btn" id = "search">搜索</span>
@@ -35,7 +35,7 @@
   							<a class="btn btn-default" href = "toAdd" role = "button">
 					    	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增回复
 					    	</a>
-  						</div>
+  						</div> -->
   					</div>
   				</div>
       			<table align="center" class="table table-bordered">
