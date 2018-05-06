@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import mapper.QuestionPostMapper;
 import pojo.QuestionPost;
-import pojo.User;
 import service.QuestionPostService;
 @Service
 public class QuestionServiceImpl implements QuestionPostService {
@@ -21,9 +20,9 @@ public class QuestionServiceImpl implements QuestionPostService {
 	}
 
 	@Override
-	public void addQuestionPost(QuestionPost questionpost, User user) {
+	public void addQuestionPost(QuestionPost questionpost) {
 		// TODO Auto-generated method stub
-		questionpostMapper.addQuestionPost(questionpost, user);
+		questionpostMapper.addQuestionPost(questionpost);
 	}
 
 	@Override

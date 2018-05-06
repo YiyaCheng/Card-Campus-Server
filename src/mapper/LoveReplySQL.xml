@@ -34,6 +34,7 @@
 		select * 
 		from love_reply,user_info,love_post
 		where love_reply.user_sno = user_info.user_sno and love_post.love_id=love_reply.love_id
+		order by lreply_id
 	</select>
 	
 	<insert id="addLoveReply">

@@ -10,7 +10,7 @@ import pojo.User;
 
 public interface QuestionReplyMapper {
 	public List<QuestionReply> questionreplyList();
-	public void addQuestionReply(@Param("questionreply")QuestionReply questionreply,@Param("questionpost")QuestionPost questionpost,@Param("user")User user);
+	public void addQuestionReply(QuestionReply questionreply);
 	public void deleteQuestionReply(int breply_id);
 	public QuestionReply getQuestionReply(int breply_id);
 	public void updateQuestionReply(QuestionReply questionreply);

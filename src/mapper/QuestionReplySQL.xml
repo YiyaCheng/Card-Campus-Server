@@ -26,12 +26,21 @@
    <result property="bpost_time" column="bpost_time"/> 
    <result property="bpost_content" column="bpost_content"/> 
    <result property="bpost_title" column="bpost_title"/> 
+   <association property="user" javaType="User">  
+   		<result property="user_sno" column="user_sno"/> 
+   		<result property="user_nickname" column="user_nickname"/> 
+  		 <result property="user_avatar" column="user_avatar"/> 
+  		 <result property="user_sex" column="user_sex"/> 
+  		<result property="user_tel" column="user_tel"/> 
+  		 <result property="user_qq" column="user_qq"/> 
+  </association> 
   </association>
  </resultMap>
 	<select id="questionreplyList" resultMap="questionreplyResultMap">
 		select * 
 		from question_reply,user_info,question_post
 		where question_reply.user_sno = user_info.user_sno and question_post.bpost_id=question_reply.bpost_id
+		order by breply_id
 	</select>
 	
 	
@@ -42,9 +51,9 @@
 	</select>
 	
 	
-	<insert id="addQuestionReply">
+	<insert id="addQuestionReply" parameterType="QuestionReply">
 		insert into question_reply (breply_id,bpost_id,user_sno,breply_content,breply_time) 
-		values(#{questionreply.breply_id},#{questionpost.bpost_id},#{user.user_sno},#{questionreply.breply_content},#{questionreply.breply_time})
+		values(#{breply_id},#{questionPost.bpost_id},#{user.user_sno},#{breply_content},#{breply_time})
 	</insert>
 	
 	<delete id="deleteQuestionReply" parameterType="QuestionReply">

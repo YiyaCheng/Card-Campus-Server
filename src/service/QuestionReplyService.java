@@ -9,7 +9,7 @@ import pojo.User;
 
 public interface QuestionReplyService {
 	public List<QuestionReply> questionreplyList();
-	public void addQuestionReply(QuestionReply questionreply,QuestionPost questionpost,User user);
+	public void addQuestionReply(QuestionReply questionreply);
 	public void deleteQuestionReply(int breply_id);
 	public QuestionReply getQuestionReply(int breply_id);
 	public void updateQuestionReply(QuestionReply questionreply);

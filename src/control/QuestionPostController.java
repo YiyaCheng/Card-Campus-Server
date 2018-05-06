@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +16,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import pojo.QuestionPost;
 import pojo.QuestionReply;
+import pojo.User;
 import service.QuestionPostService;
 import service.QuestionReplyService;
+import service.UserService;
 
 @Controller
 @RequestMapping("")
@@ -26,6 +29,9 @@ public class QuestionPostController {
 	
 	@Autowired
 	QuestionReplyService questionReplyService;
+	
+	@Autowired
+	UserService userService;
 	
 	/**
 	 * 服务器
@@ -103,7 +109,11 @@ public class QuestionPostController {
 
     }
     
-    
+    /**
+	 * 客户端
+	 * 得到所有帖子的回复数量
+	 */
+	//处理来自客户端的请求，并将json格式的数据处理结果返回。
     @RequestMapping("getQuestionPostReplyNum")
     public void getQuestionPostReplyNum(HttpServletRequest request, HttpServletResponse response){
         JSONObject jsonObject = new JSONObject();
@@ -153,4 +163,90 @@ public class QuestionPostController {
 
     }
 	
+    /**
+	 * 客户端
+	 * 这里是删除一条指定id的记录，无其他任何操作
+	 */
+	//处理来自客户端的请求，并将json格式的数据处理结果返回。
+    @RequestMapping("deleteSelectedPost")
+    public void deleteSelectedPost(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        
+        //获取android客户端传递值的方式：在这里拿到需要查找回复数的百事通问题id
+        String bpost_id=request.getParameter("bpost_id");
+        int post_id = Integer.parseInt(bpost_id);
+        
+        questionPostService.deleteQuestionPost(post_id);
+        
+    }
+    
+    
+    /**
+	 * 客户端
+	 * 添加一条百事通记录
+	 */
+	//处理来自客户端的请求，并将json格式的数据处理结果返回。
+    @RequestMapping("addQuestionPost")
+    public void addQuestionPost(HttpServletRequest request, HttpServletResponse response){
+        //获取android客户端传递值的方式：在这里拿到需要查找回复数的百事通问题id
+        String bpost_id=request.getParameter("bpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("bpost_time");
+        String bpost_content = request.getParameter("bpost_content");
+        String bpost_title = request.getParameter("bpost_title");
+        
+        int post_id = Integer.parseInt(bpost_id);
+        User user = userService.getUserBySno(user_sno);
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        QuestionPost questionpost = new QuestionPost();
+        questionpost.setBpost_content(bpost_content);
+        questionpost.setBpost_id(post_id);
+        questionpost.setBpost_time(post_time);
+        questionpost.setBpost_title(bpost_title);
+        questionpost.setUser(user);
+        
+        
+        questionPostService.addQuestionPost(questionpost);
+        
+        
+        
+    }
+    
+    
+    /**
+	 * 客户端
+	 * 更新一条百事通记录
+	 */
+	//处理来自客户端的请求，并将json格式的数据处理结果返回。
+    @RequestMapping("editQuestionPost")
+    public void editQuestionPost(HttpServletRequest request, HttpServletResponse response){
+        //获取android客户端传递值的方式：在这里拿到需要查找回复数的百事通问题id
+        String bpost_id=request.getParameter("bpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("bpost_time");
+        String bpost_content = request.getParameter("bpost_content");
+        String bpost_title = request.getParameter("bpost_title");
+        
+        int post_id = Integer.parseInt(bpost_id);
+        User user = userService.getUserBySno(user_sno);
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        QuestionPost questionpost = new QuestionPost();
+        questionpost.setBpost_content(bpost_content);
+        questionpost.setBpost_id(post_id);
+        questionpost.setBpost_time(post_time);
+        questionpost.setBpost_title(bpost_title);
+        questionpost.setUser(user);
+        
+        
+        questionPostService.updateQuestionPost(questionpost);
+        
+        System.out.println("？？？？");
+        
+    }
 }

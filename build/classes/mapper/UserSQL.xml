@@ -10,6 +10,7 @@
 
 	<select id="userList" resultType="User">
 		select * from user_info
+		order by user_sno
 	</select>
 	
 	<insert id="addUser" parameterType="User">

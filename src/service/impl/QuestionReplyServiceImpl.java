@@ -21,9 +21,9 @@ public class QuestionReplyServiceImpl implements QuestionReplyService {
 	}
 
 	@Override
-	public void addQuestionReply(QuestionReply questionreply, QuestionPost questionpost, User user) {
+	public void addQuestionReply(QuestionReply questionreply) {
 		// TODO Auto-generated method stub
-		questionreplyMapper.addQuestionReply(questionreply, questionpost, user);
+		questionreplyMapper.addQuestionReply(questionreply);
 	}
 
 	@Override

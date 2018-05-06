@@ -6,7 +6,7 @@ import pojo.User;
 
 public interface QuestionPostService {
 	public List<QuestionPost> questionpostList();
-	public void addQuestionPost(QuestionPost questionpost,User user);
+	public void addQuestionPost(QuestionPost questionpost);
 	public void deleteQuestionPost(int bpost_id);
 	public QuestionPost getQuestionPost(int bpost_id);
 	public void updateQuestionPost(QuestionPost questionpost);

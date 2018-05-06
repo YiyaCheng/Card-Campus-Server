@@ -6,6 +6,7 @@
 
 	<select id="lovepostList" resultType="LovePost">
 		select * from love_post
+		order by love_id
 	</select>
 	
 	<insert id="addLovePost" parameterType="LovePost">

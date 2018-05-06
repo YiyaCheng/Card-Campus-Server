@@ -8,7 +8,8 @@ import pojo.User;
 
 public interface QuestionPostMapper {
 	public List<QuestionPost> questionpostList();
-	public void addQuestionPost(@Param("questionpost")QuestionPost questionpost,@Param("user")User user);
+	//public void addQuestionPost(@Param("questionpost")QuestionPost questionpost,@Param("user")String user);
+	public void addQuestionPost(QuestionPost questionpost);
 	public void deleteQuestionPost(int bpost_id);
 	public QuestionPost getQuestionPost(int bpost_id);
 	public void updateQuestionPost(QuestionPost questionpost);

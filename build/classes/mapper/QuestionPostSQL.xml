@@ -26,17 +26,16 @@
 		select * 
 		from question_post,user_info
 		where question_post.user_sno = user_info.user_sno
+		order by bpost_id
 	</select>
-	
-	
-	
 	
 	
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
 	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
-	<insert id="addQuestionPost">
+	<!-- 上面两行的方法暂时搁置，因为QuestionPost里已经包含User了不需要多参数啦 -->
+	<insert id="addQuestionPost" parameterType="QuestionPost">
 		insert into question_post (bpost_id,user_sno,bpost_time,bpost_content,bpost_title) 
-		values(#{questionpost.bpost_id},#{user.user_sno},#{questionpost.bpost_time},#{questionpost.bpost_content},#{questionpost.bpost_title})
+		values(#{bpost_id},#{user.user_sno},#{bpost_time},#{bpost_content},#{bpost_title})
 	</insert>
 	
 	<delete id="deleteQuestionPost" parameterType="QuestionPost">
@@ -45,7 +44,7 @@
 	<select id="getQuestionPost" parameterType="int" resultType="QuestionPost">
 		select * from question_post where bpost_id=#{bpost_id}
 	</select>
-	<update id="updateQuestionPost" parameterType="QuestionPost">
-		update question_post set bpost_content=#{bpost_content},bpost_title=#{bpost_title},bpost_time=#{bpost_time},where bpost_id=#{bpost_id}
+	<update id="updateQuestionPost" parameterType="QuestionPost"> 
+		update question_post set bpost_content=#{bpost_content},bpost_title=#{bpost_title},bpost_time=#{bpost_time} where bpost_id=#{bpost_id}
 	</update>
 </mapper>

@@ -30,6 +30,7 @@
 		select * 
 		from dai_post,user_info
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代课'
+		order by dpost_id
 	</select>
 	
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
