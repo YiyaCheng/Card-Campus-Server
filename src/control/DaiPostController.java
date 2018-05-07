@@ -49,9 +49,9 @@ public class DaiPostController {
 		List<DaiPost> alldaike=daiPostService.daikeList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("daike",alldaike);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaike");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaike");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("DaiPostCurd/DaikeList");
 		return mav;
 	}
 	
@@ -129,9 +129,9 @@ public class DaiPostController {
 		List<DaiPost> alldaifood=daiPostService.daifoodList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("daifood",alldaifood);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaifood");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaifood");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("DaiPostCurd/DaifoodList");
 		return mav;
 	}
 	
@@ -205,9 +205,9 @@ public class DaiPostController {
 		List<DaiPost> alldaideliver=daiPostService.daideliverList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("daideliver",alldaideliver);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaideliver");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaideliver");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("DaiPostCurd/DaideliverList");
 		return mav;
 	}
 	
@@ -277,9 +277,9 @@ public class DaiPostController {
 		List<DaiPost> alldaiactivity=daiPostService.daiactivityList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("daiactivity",alldaiactivity);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaiactivity");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaiactivity");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("DaiPostCurd/DaiactivityList");
 		return mav;
 	}
 	
@@ -349,9 +349,9 @@ public class DaiPostController {
 		List<DaiPost> alldaiwalk=daiPostService.daiwalkList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("daiwalk",alldaiwalk);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaiwalk");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaiwalk");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("DaiPostCurd/DaiwalkList");
 		return mav;
 	}
 	
@@ -422,9 +422,9 @@ public class DaiPostController {
 		List<DaiPost> alldaibuy=daiPostService.daibuyList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("daibuy",alldaibuy);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaibuy");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listDaibuy");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("DaiPostCurd/DaibuyList");
 		return mav;
 	}
 	
@@ -453,7 +453,7 @@ public class DaiPostController {
 		try {
 			byte[] bytes = arrayDaibuy.toString().getBytes("utf-8");
 			
-			//把字节数组写入输出流
+			//把字节数组写入输出流/
 			response.getOutputStream().write(bytes);
 			
 			//设置传输内容的长度，方便response处理

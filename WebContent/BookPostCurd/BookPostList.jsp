@@ -5,7 +5,8 @@
 <%
 	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
 %>
-<link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet"
+	href="${APP_PATH}/static/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="${APP_PATH}/static/css/font-awesome.css">
 <link rel="stylesheet" href="${APP_PATH}/static/css/index.css">
 <!-- 修改自Bootstrap官方Demon，你可以按自己的喜好制定CSS样式 -->
@@ -21,13 +22,14 @@
 .container-fluid {
 	margin-top: 20px
 }
+
 #BookMenu {
 	display: block;
 }
 </style>
 <title>图书列表</title>
 <body>
-<!-- 顶部菜单（来自bootstrap官方Demon）==================================== -->
+	<!-- 顶部菜单（来自bootstrap官方Demon）==================================== -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -76,15 +78,20 @@
 						<li><a
 							href="http://localhost:8080/Card-Campus-Server/listDaike"><i
 								class="fa fa-list"></i> 代课列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listDaifood"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listDaifood"><i
 								class="fa fa-list"></i> 代拿外卖列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listDaiactivity"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listDaiactivity"><i
 								class="fa fa-list"></i> 代活动列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listDaiwalk"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listDaiwalk"><i
 								class="fa fa-list"></i> 代健步走列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listDaibuy"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listDaibuy"><i
 								class="fa fa-list"></i> 代购列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listDaideliver"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listDaideliver"><i
 								class="fa fa-list"></i> 代拿快递列表</a></li>
 					</ul>
 
@@ -94,9 +101,11 @@
 							<i class="fa fa-globe"></i>&nbsp; 百事通模块管理 <span class="sr-only">(current)</span>
 					</a></li>
 					<ul id="BaishitongMenu" class="nav nav-list collapse menu-second">
-						<li><a href="http://localhost:8080/Card-Campus-Server/listQuestionPost"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listQuestionPost"><i
 								class="fa fa-list-alt"></i> 百事通帖子列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listQuestionReply"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listQuestionReply"><i
 								class="fa fa-list-alt"></i> 百事通回复列表</a></li>
 					</ul>
 
@@ -105,9 +114,11 @@
 							<i class="fa fa-globe"></i>&nbsp; 表白墙模块管理 <span class="sr-only">(current)</span>
 					</a></li>
 					<ul id="LoveMenu" class="nav nav-list collapse menu-second">
-						<li><a href="http://localhost:8080/Card-Campus-Server/listLovePost"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listLovePost"><i
 								class="fa fa-list-alt"></i> 表白帖子列表</a></li>
-						<li><a href="http://localhost:8080/Card-Campus-Server/listLoveReply"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listLoveReply"><i
 								class="fa fa-list-alt"></i> 表白帖子回复列表</a></li>
 					</ul>
 
@@ -201,6 +212,5 @@
 					</div>
 				</div>
 			</div>
-			
 </body>
 </html>

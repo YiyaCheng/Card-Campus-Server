@@ -52,9 +52,10 @@ public class QuestionReplyController {
 		List<QuestionReply> allquestionreply=questionReplyService.questionreplyList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("questionreply",allquestionreply);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listQuestionReply");
+		//哈哈
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listQuestionReply");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("QuestionReplyCurd/QuestionReplyList");
 		return mav;
 	}
 	

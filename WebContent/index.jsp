@@ -185,7 +185,7 @@
           					
           				</div>  
 				</div> -->
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<%-- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		
 
 		<!-- 载入左侧菜单指向的jsp（或html等）页面内容 -->
@@ -202,7 +202,7 @@
 
 
 		</div>
-	</div>
+	</div> --%>
 
 
 	<script type="text/javascript">

@@ -55,9 +55,9 @@ public class QuestionPostController {
 		List<QuestionPost> allquestionpost=questionPostService.questionpostList();
 		//mav存放转发到jsp页面的参数
 		mav.addObject("questionpost",allquestionpost);//mav相当于一个hashmap
-		mav.addObject("address","http://localhost:8080/Card-Campus-Server/listQuestionPost");
+		//mav.addObject("address","http://localhost:8080/Card-Campus-Server/listQuestionPost");
 		//放入将要跳转的jsp文件名
-		mav.setViewName("index");
+		mav.setViewName("QuestionPostCurd/QuestionPostList");
 		return mav;
 	}
 	
