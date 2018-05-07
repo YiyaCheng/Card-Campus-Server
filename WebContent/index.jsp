@@ -4,12 +4,12 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-CN">
-<head>
+<%-- <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<%-- 在IE运行最新的渲染模式 --%>
+在IE运行最新的渲染模式
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<%-- 初始化移动浏览显示 --%>
+初始化移动浏览显示
 <meta name="Author" content="Dreamer-1.">
 
 <!-- 引入各种CSS样式表 -->
@@ -23,7 +23,30 @@
 <script type="text/javascript"
 	src="static/bootstrap/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
-	src="static/bootstrap/js/bootstrap.min.js"></script>
+	src="static/bootstrap/js/bootstrap.min.js"></script> --%>
+	
+	
+	<%
+	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
+%>
+<link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="${APP_PATH}/static/css/font-awesome.css">
+<link rel="stylesheet" href="${APP_PATH}/static/css/index.css">
+<!-- 修改自Bootstrap官方Demon，你可以按自己的喜好制定CSS样式 -->
+
+<link rel="stylesheet" href="${APP_PATH}/static/css/font-change.css">
+<!-- 将默认字体从宋体换成微软雅黑（个人比较喜欢微软雅黑，移动端和桌面端显示效果比较接近） -->
+<script type="text/javascript"
+	src="${APP_PATH}/static/bootstrap/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"
+	src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+.container-fluid {
+	margin-top: 20px
+}
+
+</style>
 
 <title>- 卡片校园后台管理系统 -</title>
 </head>
@@ -52,10 +75,11 @@
         		</div> -->
 	</div>
 	</nav>
-	<!-- 左侧菜单选项========================================= -->
+	
+	
 	<div class="container-fluid">
-		<div class="row-fluie">
-			<div class="col-sm-3 col-md-2 sidebar">
+		<div class="row">
+			<div class="col-sm-2">
 				<ul class="nav nav-sidebar">
 					<!-- 一级菜单 -->
 					<li class=""><a href="#userMenu"
@@ -65,8 +89,8 @@
 					<!-- 二级菜单 -->
 					<!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
 					<ul id="userMenu" class="nav nav-list collapse menu-second">
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listUser')"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listUser"><i
 								class="fa fa-users"></i> 用户列表</a></li>
 					</ul>
 
@@ -75,23 +99,18 @@
 						data-toggle="collapse"> <i class="fa fa-file-text"></i>&nbsp;
 							代代代模块管理 <span class="sr-only">(current)</span></a></li>
 					<ul id="DaiMenu" class="nav nav-list collapse menu-second">
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaike')"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listDaike"><i
 								class="fa fa-list"></i> 代课列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaifood')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listDaifood"><i
 								class="fa fa-list"></i> 代拿外卖列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaiactivity')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listDaiactivity"><i
 								class="fa fa-list"></i> 代活动列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaiwalk')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listDaiwalk"><i
 								class="fa fa-list"></i> 代健步走列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaibuy')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listDaibuy"><i
 								class="fa fa-list"></i> 代购列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listDaideliver')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listDaideliver"><i
 								class="fa fa-list"></i> 代拿快递列表</a></li>
 					</ul>
 
@@ -101,11 +120,9 @@
 							<i class="fa fa-globe"></i>&nbsp; 百事通模块管理 <span class="sr-only">(current)</span>
 					</a></li>
 					<ul id="BaishitongMenu" class="nav nav-list collapse menu-second">
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listQuestionPost')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listQuestionPost"><i
 								class="fa fa-list-alt"></i> 百事通帖子列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listQuestionReply')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listQuestionReply"><i
 								class="fa fa-list-alt"></i> 百事通回复列表</a></li>
 					</ul>
 
@@ -114,11 +131,9 @@
 							<i class="fa fa-globe"></i>&nbsp; 表白墙模块管理 <span class="sr-only">(current)</span>
 					</a></li>
 					<ul id="LoveMenu" class="nav nav-list collapse menu-second">
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLovePost')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listLovePost"><i
 								class="fa fa-list-alt"></i> 表白帖子列表</a></li>
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listLoveReply')"><i
+						<li><a href="http://localhost:8080/Card-Campus-Server/listLoveReply"><i
 								class="fa fa-list-alt"></i> 表白帖子回复列表</a></li>
 					</ul>
 
@@ -127,15 +142,33 @@
 							<i class="fa fa-globe"></i>&nbsp; 二手书籍模块管理 <span class="sr-only">(current)</span>
 					</a></li>
 					<ul id="BookMenu" class="nav nav-list collapse menu-second">
-						<li><a href="###"
-							onclick="showAtRight('http://localhost:8080/Card-Campus-Server/listBookPost')"><i
+						<li><a
+							href="http://localhost:8080/Card-Campus-Server/listBookPost"><i
 								class="fa fa-list-alt"></i> 图书列表</a></li>
 					</ul>
 				</ul>
 
+
+
+				<!-- <a href="#" class="list-group-item active"><span
+					class="glyphicon glyphicon-home"></span>商品管理 </a> <a href="test2.jsp"
+					class="list-group-item"> 小图标样式设置 <span
+					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户查询
+				</a> <a href="#" class="list-group-item"> <span
+					class="glyphicon glyphicon-align-left" aria-hidden="true"> </span>VIP客户录入
+				</a> <a href="#" class="list-group-item"> <span
+					class="glyphicon glyphicon-camera" aria-hidden="true"> </span>VIP客户消费
+				</a> <a href="#" class="list-group-item"> <span
+					class="glyphicon glyphicon-plus" aria-hidden="true"> </span>VIP客户增加
+				</a> <a href="#" class="list-group-item"> <span
+					class="glyphicon glyphicon-minus" aria-hidden="true"> </span>VIP客户删除
+				</a> <a href="#" class="list-group-item"> <span
+					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户注销
+				</a> <a href="#" class="list-group-item"> <span
+					class="glyphicon glyphicon-user" aria-hidden="true"> </span>个人设置
+				</a> -->
 			</div>
-		</div>
-	</div>
+	
 
 	<!-- 右侧内容展示==================================================   -->
 	<!-- <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -153,9 +186,7 @@
           				</div>  
 				</div> -->
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h1 class="page-header">
-			<i class="fa fa-cog fa-spin"></i>&nbsp;控制台
-		</h1>
+		
 
 		<!-- 载入左侧菜单指向的jsp（或html等）页面内容 -->
 		<div id="content">
