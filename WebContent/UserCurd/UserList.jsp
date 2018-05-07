@@ -39,15 +39,6 @@
 			</button>
 			<a class="navbar-brand" href="index.jsp">欢迎来到卡片校园后台管理界面</a>
 		</div>
-
-		<!-- <div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">			            
-						<li><a href="###" onclick="showAtRight('/Card-Campus-Server/WebContent/UserCURD/UserList.jsp')"><i class="fa fa-users"></i> 用户列表</a></li>	
-						<li><a href="###" onclick="showAtRight('UserList.jsp')"><i class="fa fa-list-alt"></i> 产品列表</a></li>
-						<li><a href="###" onclick="showAtRight('UserList.jsp')" ><i class="fa fa-list"></i> 订单列表</a></li>	
-					</ul>
-          			
-        		</div> -->
 	</div>
 	</nav>
 <div class="container-fluid">
@@ -55,7 +46,7 @@
 			<div class="col-sm-2">
 				<ul class="nav nav-sidebar">
 					<!-- 一级菜单 -->
-					<li class=""><a href="#userMenu"
+					<li class="active"><a href="#userMenu"
 						class="nav-header menu-first collapsed" data-toggle="collapse">
 							<i class="fa fa-user"></i>&nbsp; 用户管理 <span class="sr-only">(current)</span>
 					</a></li>
@@ -122,24 +113,6 @@
 				</ul>
 
 
-
-				<!-- <a href="#" class="list-group-item active"><span
-					class="glyphicon glyphicon-home"></span>商品管理 </a> <a href="test2.jsp"
-					class="list-group-item"> 小图标样式设置 <span
-					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户查询
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-align-left" aria-hidden="true"> </span>VIP客户录入
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-camera" aria-hidden="true"> </span>VIP客户消费
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-plus" aria-hidden="true"> </span>VIP客户增加
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-minus" aria-hidden="true"> </span>VIP客户删除
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户注销
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-user" aria-hidden="true"> </span>个人设置
-				</a> -->
 			</div>
 
 
@@ -186,7 +159,7 @@
            					<td>${c.user_qq}</td>
           					<td>
               		<!-- deleteUser与UserCOntroller中注解的名字一致 -->
-               				<a role="button" class="btn btn=danger btn-xs" href='deleteUser?user_sno=${c.user_sno}'>
+               				<a role="button" class="btn btn-danger btn-xs" href='deleteUser?user_sno=${c.user_sno}'>
                 				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除
                				</a>
              				</td>
@@ -198,5 +171,19 @@
       	</div> 
   	</div>                    
 </div>
+<script type="text/javascript">
+        
+        /*
+         * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
+         * （实现左侧菜单中的标签点击后变色的效果）
+         */
+        $(document).ready(function () {
+            $('ul.nav > li').click(function (e) {
+                //e.preventDefault();    加上这句则导航的<a>标签会失效
+                $('ul.nav > li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+</script>
 </body>
 </html>

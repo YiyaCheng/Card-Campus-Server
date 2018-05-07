@@ -4,29 +4,8 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-CN">
-<%-- <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-在IE运行最新的渲染模式
-<meta name="viewport" content="width=device-width, initial-scale=1">
-初始化移动浏览显示
-<meta name="Author" content="Dreamer-1.">
-
-<!-- 引入各种CSS样式表 -->
-<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="static/css/font-awesome.css">
-<link rel="stylesheet" href="static/css/index.css">
-<!-- 修改自Bootstrap官方Demon，你可以按自己的喜好制定CSS样式 -->
-<link rel="stylesheet" href="static/css/font-change.css">
-<!-- 将默认字体从宋体换成微软雅黑（个人比较喜欢微软雅黑，移动端和桌面端显示效果比较接近） -->
-
-<script type="text/javascript"
-	src="static/bootstrap/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript"
-	src="static/bootstrap/js/bootstrap.min.js"></script> --%>
 	
-	
-	<%
+<%
 	pageContext.setAttribute("APP_PATH", request.getContextPath()); /*根路径 /jay_ssm */
 %>
 <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.css">

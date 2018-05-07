@@ -16,6 +16,7 @@
 	src="${APP_PATH}/static/bootstrap/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+	
 
 <style type="text/css">
 .container-fluid {
@@ -99,7 +100,7 @@
 								class="fa fa-list-alt"></i> 百事通回复列表</a></li>
 					</ul>
 
-					<li><a href="#LoveMenu"
+					<li class="active"><a href="#LoveMenu"
 						class="nav-header menu-first collapsed" data-toggle="collapse">
 							<i class="fa fa-globe"></i>&nbsp; 表白墙模块管理 <span class="sr-only">(current)</span>
 					</a></li>
@@ -121,25 +122,6 @@
 					</ul>
 				</ul>
 
-
-
-				<!-- <a href="#" class="list-group-item active"><span
-					class="glyphicon glyphicon-home"></span>商品管理 </a> <a href="test2.jsp"
-					class="list-group-item"> 小图标样式设置 <span
-					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户查询
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-align-left" aria-hidden="true"> </span>VIP客户录入
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-camera" aria-hidden="true"> </span>VIP客户消费
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-plus" aria-hidden="true"> </span>VIP客户增加
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-minus" aria-hidden="true"> </span>VIP客户删除
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户注销
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-user" aria-hidden="true"> </span>个人设置
-				</a> -->
 			</div>
 
 <div  class="container">
@@ -186,7 +168,7 @@
           					<td>
           					
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->
-               				<a role="button" class="btn btn=danger btn-xs" href='deleteLovePost?love_id=${c.love_id}'>
+               				<a role="button" class="btn btn-danger btn-xs" href='deleteLovePost?love_id=${c.love_id}'>
                 				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除
                				</a>
              				</td>
@@ -198,5 +180,19 @@
       	</div> 
   	</div>                    
 </div>
+<script type="text/javascript">
+        
+        /*
+         * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
+         * （实现左侧菜单中的标签点击后变色的效果）
+         */
+        $(document).ready(function () {
+            $('ul.nav > li').click(function (e) {
+                //e.preventDefault();    加上这句则导航的<a>标签会失效
+                $('ul.nav > li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+</script>
 </body>
 </html>

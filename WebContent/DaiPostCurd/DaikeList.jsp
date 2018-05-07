@@ -68,7 +68,7 @@
 					</ul>
 
 
-					<li><a href="#DaiMenu" class="nav-header menu-first collapsed"
+					<li class="active"><a href="#DaiMenu" class="nav-header menu-first collapsed"
 						data-toggle="collapse"> <i class="fa fa-file-text"></i>&nbsp;
 							代代代模块管理 <span class="sr-only">(current)</span></a></li>
 					<ul id="DaiMenu" class="nav nav-list collapse menu-second">
@@ -121,25 +121,6 @@
 					</ul>
 				</ul>
 
-
-
-				<!-- <a href="#" class="list-group-item active"><span
-					class="glyphicon glyphicon-home"></span>商品管理 </a> <a href="test2.jsp"
-					class="list-group-item"> 小图标样式设置 <span
-					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户查询
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-align-left" aria-hidden="true"> </span>VIP客户录入
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-camera" aria-hidden="true"> </span>VIP客户消费
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-plus" aria-hidden="true"> </span>VIP客户增加
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-minus" aria-hidden="true"> </span>VIP客户删除
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-search" aria-hidden="true"> </span>VIP客户注销
-				</a> <a href="#" class="list-group-item"> <span
-					class="glyphicon glyphicon-user" aria-hidden="true"> </span>个人设置
-				</a> -->
 			</div>
 <div  class="container">
 	<div class="row">
@@ -186,7 +167,7 @@
           					<td>${c.is_solved}</td>
           					<td>
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->
-               				<a role="button" class="btn btn=danger btn-xs" href='deleteDaike?dpost_id=${c.dpost_id}'>
+               				<a role="button" class="btn btn-danger btn-xs" href='deleteDaike?dpost_id=${c.dpost_id}'>
                 				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除
                				</a>
              				</td>
@@ -198,5 +179,19 @@
       	</div> 
   	</div>                    
 </div>
+<script type="text/javascript">
+        
+        /*
+         * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
+         * （实现左侧菜单中的标签点击后变色的效果）
+         */
+        $(document).ready(function () {
+            $('ul.nav > li').click(function (e) {
+                //e.preventDefault();    加上这句则导航的<a>标签会失效
+                $('ul.nav > li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+</script>
 </body>
 </html>
