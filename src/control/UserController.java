@@ -167,4 +167,66 @@ public class UserController {
 		};
 
     }
+	
+	
+	@RequestMapping("insertLinkWay")
+    public void insertLinkWay(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        System.out.println("进来了吗！！！");
+        //获取android客户端传递值的方式：在这里拿到需要插入用户的学号
+        String user_sno=request.getParameter("user_sno");
+        System.out.println(user_sno);
+        String user_qq=request.getParameter("user_qq");
+        System.out.println(user_qq);
+        String user_tel=request.getParameter("user_tel");
+        System.out.println(user_tel);
+        User user = userService.getUserBySno(user_sno);
+        
+        if(!(user_qq.equals(""))) {
+        	user.setUser_qq(user_qq);
+        }
+        if(!(user_tel.equals(""))) {
+        	user.setUser_tel(user_tel);
+        }
+        
+        userService.updateUser(user);
+        jsonObject.put("user", "user");
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = jsonObject.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
 }

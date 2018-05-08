@@ -8,9 +8,11 @@ import pojo.DaiPost;
 import pojo.User;
 
 public interface DaiPostService {
+		public int daiNum();
+	
 		//1.´ú¿Î
 		public List<DaiPost> daikeList();
-		public void addDaike(@Param("daipost")DaiPost daipost,@Param("user")User user);
+		public void addDaike(DaiPost daipost);
 		public void deleteDaike(int dpost_id);
 		public DaiPost getDaike(int dpost_id);
 		public void updateDaike(DaiPost daipost);

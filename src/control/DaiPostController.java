@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +16,55 @@ import org.springframework.web.servlet.ModelAndView;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import pojo.DaiPost;
+import pojo.User;
 import service.DaiPostService;
+import service.UserService;
 
 @Controller
 @RequestMapping("")
 public class DaiPostController {
 	@Autowired
 	DaiPostService daiPostService;
+	
+	@RequestMapping("daiNum")
+	public void daiNum(HttpServletResponse response) {
+		
+		JSONObject jsonObject = new JSONObject();
+        int count=daiPostService.daiNum();
+        jsonObject.put("count", count);
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = jsonObject.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	}
+	
 	
 	/**
 	 * 1.代课的相关操作
@@ -103,8 +146,45 @@ public class DaiPostController {
 		};
 
     }
-	
-	
+	/*
+	 * 客户端
+	 * 添加一条代课记录
+	 */
+    @Autowired
+	UserService userService;
+    
+    @RequestMapping("addDaike")
+	public void addDaike(HttpServletRequest request, HttpServletResponse response) {
+    	String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        //String user_qq=request.getParameter("user_qq");
+        String dpost_type=request.getParameter("dpost_type");
+        String is_solved = request.getParameter("is_solved");
+        
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solved=Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        //System.out.println("QQ:"+user.getUser_qq());
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solved);
+        daipost.setUser(user);
+        daipost.setDpost_type(dpost_type);
+        
+        System.out.println("dddddddaike");
+        daiPostService.addDaike(daipost);
+	}
 	
 	
 	/**

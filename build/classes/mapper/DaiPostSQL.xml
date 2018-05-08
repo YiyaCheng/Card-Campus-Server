@@ -24,6 +24,12 @@
   </association> 
  </resultMap>
 
+
+	<select id="daiNum" resultType="Integer">  
+     	select count(*)
+     	from  dai_post
+     	order by dpost_id  
+	</select>  
 	
 	<!-- 1.代课 -->
 	<select id="daikeList" resultMap="daipostResultMap">
@@ -35,8 +41,8 @@
 	
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
 	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
-	<insert id="addDaike">
-		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+	<insert id="addDaike" parameterType="DaiPost">
+		insert into dai_post values(#{dpost_id},#{user.user_sno},#{dpost_time},#{dpost_content},#{dpost_title},#{dpost_type},#{is_solved})
 	</insert>
 	
 	<delete id="deleteDaike" parameterType="DaiPost">

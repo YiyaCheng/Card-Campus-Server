@@ -16,6 +16,10 @@ public class DaiPostServiceImpl implements DaiPostService {
 	@Autowired
 	DaiPostMapper daipostMapper;
 	
+	public int daiNum() {
+		return daipostMapper.daiNum();
+	}
+	
 	/**
 	 * 1.´ú¿Î
 	 */
@@ -26,9 +30,9 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void addDaike(DaiPost daipost, User user) {
+	public void addDaike(DaiPost daipost) {
 		// TODO Auto-generated method stub
-		daipostMapper.addDaike(daipost, user);
+		daipostMapper.addDaike(daipost);
 	}
 
 	@Override
