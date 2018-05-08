@@ -64,7 +64,7 @@
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代拿外卖'
 	</select>
 	
-	<insert id="addDaifood">
+	<insert id="addDaifood" parameterType="DaiPost">
 		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
 	</insert>
 	
@@ -87,7 +87,7 @@
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代拿快递'
 	</select>
 	
-	<insert id="addDaideliver">
+	<insert id="addDaideliver" parameterType="DaiPost">
 		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
 	</insert>
 	
@@ -110,7 +110,7 @@
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代活动'
 	</select>
 	
-	<insert id="addDaiactivity">
+	<insert id="addDaiactivity" parameterType="DaiPost">
 		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
 	</insert>
 	
@@ -133,7 +133,7 @@
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代健步走'
 	</select>
 	
-	<insert id="addDaiwalk">
+	<insert id="addDaiwalk" parameterType="DaiPost">
 		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
 	</insert>
 	
@@ -156,7 +156,7 @@
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代购'
 	</select>
 	
-	<insert id="addDaibuy">
+	<insert id="addDaibuy" parameterType="DaiPost">
 		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
 	</insert>
 	

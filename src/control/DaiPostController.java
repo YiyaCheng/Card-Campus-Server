@@ -258,7 +258,37 @@ public class DaiPostController {
 		};
 
     }
-	
+	@RequestMapping("addDaifood")
+	public void addDaifood(HttpServletRequest request, HttpServletResponse response) {
+    	String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        //String user_qq=request.getParameter("user_qq");
+        String dpost_type=request.getParameter("dpost_type");
+        String is_solved = request.getParameter("is_solved");
+        
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solved=Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        //System.out.println("QQ:"+user.getUser_qq());
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solved);
+        daipost.setUser(user);
+        daipost.setDpost_type(dpost_type);
+        
+        daiPostService.addDaifood(daipost);
+	}
 	
 	
 	
@@ -335,6 +365,38 @@ public class DaiPostController {
 
     }
 	
+	@RequestMapping("addDaideliver")
+	public void addDaideliver(HttpServletRequest request, HttpServletResponse response) {
+    	String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        //String user_qq=request.getParameter("user_qq");
+        String dpost_type=request.getParameter("dpost_type");
+        String is_solved = request.getParameter("is_solved");
+        
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solved=Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        //System.out.println("QQ:"+user.getUser_qq());
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solved);
+        daipost.setUser(user);
+        daipost.setDpost_type(dpost_type);
+        
+        daiPostService.addDaideliver(daipost);
+	}
+	
 	/**
 	 * 4.代活动的相关操作
 	 */
@@ -406,6 +468,38 @@ public class DaiPostController {
 		};
 
     }
+	@RequestMapping("addDaiactivity")
+	public void addDaiactivity(HttpServletRequest request, HttpServletResponse response) {
+    	String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        //String user_qq=request.getParameter("user_qq");
+        String dpost_type=request.getParameter("dpost_type");
+        String is_solved = request.getParameter("is_solved");
+        
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solved=Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        //System.out.println("QQ:"+user.getUser_qq());
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solved);
+        daipost.setUser(user);
+        daipost.setDpost_type(dpost_type);
+        
+        daiPostService.addDaiactivity(daipost);
+	}
+	
 	
 	/**
 	 * 5.代健步走的相关操作
@@ -479,6 +573,37 @@ public class DaiPostController {
 
     }
 	
+	@RequestMapping("addDaiwalk")
+	public void addDaiwalk(HttpServletRequest request, HttpServletResponse response) {
+    	String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        //String user_qq=request.getParameter("user_qq");
+        String dpost_type=request.getParameter("dpost_type");
+        String is_solved = request.getParameter("is_solved");
+        
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solved=Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        //System.out.println("QQ:"+user.getUser_qq());
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solved);
+        daipost.setUser(user);
+        daipost.setDpost_type(dpost_type);
+        
+        daiPostService.addDaiwalk(daipost);
+	}
 	
 	/**
 	 * 6.代购的相关操作
@@ -549,6 +674,37 @@ public class DaiPostController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		};
-
     }
+	
+	@RequestMapping("addDaibuy")
+	public void addDaibuy(HttpServletRequest request, HttpServletResponse response) {
+    	String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        //String user_qq=request.getParameter("user_qq");
+        String dpost_type=request.getParameter("dpost_type");
+        String is_solved = request.getParameter("is_solved");
+        
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solved=Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        //System.out.println("QQ:"+user.getUser_qq());
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solved);
+        daipost.setUser(user);
+        daipost.setDpost_type(dpost_type);
+        
+        daiPostService.addDaibuy(daipost);
+	}
 }

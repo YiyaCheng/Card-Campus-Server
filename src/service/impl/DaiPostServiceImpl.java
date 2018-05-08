@@ -63,9 +63,9 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void addDaifood(DaiPost daipost, User user) {
+	public void addDaifood(DaiPost daipost) {
 		// TODO Auto-generated method stub
-		daipostMapper.addDaifood(daipost, user);
+		daipostMapper.addDaifood(daipost);
 	}
 
 	@Override
@@ -96,9 +96,9 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void addDaideliver(DaiPost daipost, User user) {
+	public void addDaideliver(DaiPost daipost) {
 		// TODO Auto-generated method stub
-		daipostMapper.addDaideliver(daipost, user);
+		daipostMapper.addDaideliver(daipost);
 	}
 
 	@Override
@@ -129,9 +129,9 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void addDaiactivity(DaiPost daipost, User user) {
+	public void addDaiactivity(DaiPost daipost) {
 		// TODO Auto-generated method stub
-		daipostMapper.addDaiactivity(daipost, user);
+		daipostMapper.addDaiactivity(daipost);
 	}
 
 	@Override
@@ -162,9 +162,9 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void addDaiwalk(DaiPost daipost, User user) {
+	public void addDaiwalk(DaiPost daipost) {
 		// TODO Auto-generated method stub
-		daipostMapper.addDaiwalk(daipost, user);
+		daipostMapper.addDaiwalk(daipost);
 	}
 
 	@Override
@@ -195,9 +195,9 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void addDaibuy(DaiPost daipost, User user) {
+	public void addDaibuy(DaiPost daipost) {
 		// TODO Auto-generated method stub
-		daipostMapper.addDaibuy(daipost, user);
+		daipostMapper.addDaibuy(daipost);
 	}
 
 	@Override
