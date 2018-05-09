@@ -62,10 +62,11 @@
 		select * 
 		from dai_post,user_info
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代拿外卖'
+		order by dpost_id
 	</select>
 	
 	<insert id="addDaifood" parameterType="DaiPost">
-		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+		insert into dai_post values(#{dpost_id},#{user.user_sno},#{dpost_time},#{dpost_content},#{dpost_title},#{dpost_type},#{is_solved})
 	</insert>
 	
 	<delete id="deleteDaifood" parameterType="DaiPost">
@@ -85,10 +86,11 @@
 		select * 
 		from dai_post,user_info
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代拿快递'
+		order by dpost_id
 	</select>
 	
 	<insert id="addDaideliver" parameterType="DaiPost">
-		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+		insert into dai_post values(#{dpost_id},#{user.user_sno},#{dpost_time},#{dpost_content},#{dpost_title},#{dpost_type},#{is_solved})
 	</insert>
 	
 	<delete id="deleteDaideliver" parameterType="DaiPost">
@@ -108,10 +110,11 @@
 		select * 
 		from dai_post,user_info
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代活动'
+		order by dpost_id
 	</select>
 	
 	<insert id="addDaiactivity" parameterType="DaiPost">
-		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+		insert into dai_post values(#{dpost_id},#{user.user_sno},#{dpost_time},#{dpost_content},#{dpost_title},#{dpost_type},#{is_solved})
 	</insert>
 	
 	<delete id="deleteDaiactivity" parameterType="DaiPost">
@@ -131,10 +134,11 @@
 		select * 
 		from dai_post,user_info
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代健步走'
+		order by dpost_id
 	</select>
 	
 	<insert id="addDaiwalk" parameterType="DaiPost">
-		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+		insert into dai_post values(#{dpost_id},#{user.user_sno},#{dpost_time},#{dpost_content},#{dpost_title},#{dpost_type},#{is_solved})
 	</insert>
 	
 	<delete id="deleteDaiwalk" parameterType="DaiPost">
@@ -154,10 +158,11 @@
 		select * 
 		from dai_post,user_info
 		where dai_post.user_sno = user_info.user_sno and dpost_type='代购'
+		order by dpost_id
 	</select>
 	
 	<insert id="addDaibuy" parameterType="DaiPost">
-		insert into dai_post values(#{daipost.dpost_id},#{user.user_sno},#{daipost.dpost_time},#{daipost.dpost_content},#{daipost.dpost_title},#{daipost.dpost_type},#{daipost.is_solved})
+		insert into dai_post values(#{dpost_id},#{user.user_sno},#{dpost_time},#{dpost_content},#{dpost_title},#{dpost_type},#{is_solved})
 	</insert>
 	
 	<delete id="deleteDaibuy" parameterType="DaiPost">
