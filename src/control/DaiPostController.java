@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import pojo.DaiPost;
+import pojo.QuestionPost;
 import pojo.User;
 import service.DaiPostService;
 import service.UserService;
@@ -64,6 +65,85 @@ public class DaiPostController {
 			e.printStackTrace();
 		};
 	}
+	
+	@RequestMapping("getallDaiPostList")
+	public void getallDaiPostList(HttpServletRequest request, HttpServletResponse response){
+		JSONObject jsonObject = new JSONObject();
+        List<DaiPost> allpost=daiPostService.allDaiPostList();
+        JSONArray arrayDaiPost = JSONArray.fromObject(allpost);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayDaiPost.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	}
+	
+	/**
+	 * 客户端
+	 * 用户修改自己的发帖记录
+	 */
+	//处理来自客户端的请求，并将json格式的数据处理结果返回。
+    @RequestMapping("editDaiPost")
+    public void editDaiPost(HttpServletRequest request, HttpServletResponse response){
+        
+        String dpost_id=request.getParameter("dpost_id");
+        String user_sno = request.getParameter("user_sno");
+        String time = request.getParameter("dpost_time");
+        String dpost_content = request.getParameter("dpost_content");
+        String dpost_title = request.getParameter("dpost_title");
+        String is_solved=request.getParameter("is_solved");
+        
+        int post_id = Integer.parseInt(dpost_id);
+        int solve_state = Integer.parseInt(is_solved);
+        User user = userService.getUserBySno(user_sno);
+        
+        long time1 = Long.parseLong(time);
+        Timestamp post_time = new Timestamp(time1);
+      
+        DaiPost daipost = new DaiPost();
+        daipost.setDpost_content(dpost_content);
+        daipost.setDpost_id(post_id);
+        daipost.setDpost_time(post_time);
+        daipost.setDpost_title(dpost_title);
+        daipost.setIs_solved(solve_state);
+        daipost.setUser(user);
+        
+        daiPostService.updateDaipost(daipost);
+        
+    }
+	
+	
 	
 	
 	/**

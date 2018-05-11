@@ -11,6 +11,9 @@ import pojo.User;
 public interface DaiPostMapper {
 	
 	public int daiNum();
+	public List<DaiPost> allDaiPostList();
+	public void updateDaipost(DaiPost daipost);
+	
 	//1.´ú¿Î
 	public List<DaiPost> daikeList();
 	//public void addDaike(@Param("daipost")DaiPost daipost,@Param("user")User user);

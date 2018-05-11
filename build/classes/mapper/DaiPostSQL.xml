@@ -28,8 +28,21 @@
 	<select id="daiNum" resultType="Integer">  
      	select count(*)
      	from  dai_post
-     	order by dpost_id  
+     	order by dpost_id
 	</select>  
+	
+	<!-- 得到用户自己发的所有代代代帖子 -->
+	<select id="allDaiPostList" resultMap="daipostResultMap">
+		select *
+		from dai_post,user_info
+		where dai_post.user_sno = user_info.user_sno
+		order by dpost_id
+	</select>
+	
+	<update id="updateDaipost" parameterType="DaiPost">
+		update dai_post set dpost_time=#{dpost_time},dpost_content=#{dpost_content},dpost_title=#{dpost_title},is_solved=#{is_solved} where dpost_id=#{dpost_id}
+	</update>
+	
 	
 	<!-- 1.代课 -->
 	<select id="daikeList" resultMap="daipostResultMap">

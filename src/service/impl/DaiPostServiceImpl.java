@@ -20,6 +20,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 		return daipostMapper.daiNum();
 	}
 	
+	public List<DaiPost> allDaiPostList(){
+		return daipostMapper.allDaiPostList();
+	}
+	public void updateDaipost(DaiPost daipost) {
+		daipostMapper.updateDaipost(daipost);
+	}
+	
 	/**
 	 * 1.´ú¿Î
 	 */
