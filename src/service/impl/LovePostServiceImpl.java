@@ -28,13 +28,13 @@ public class LovePostServiceImpl implements LovePostService {
 	}
 
 	@Override
-	public void deleteLovePost(int love_id) {
+	public void deleteLovePost(String love_id) {
 		// TODO Auto-generated method stub
 		lovePostMapper.deleteLovePost(love_id);
 	}
 
 	@Override
-	public User getLovePost(int love_id) {
+	public LovePost getLovePost(String love_id) {
 		// TODO Auto-generated method stub
 		return lovePostMapper.getLovePost(love_id);
 	}

@@ -10,8 +10,9 @@ import pojo.User;
 
 public interface LoveReplyService {
 	public List<LoveReply> lovereplyList();
-	public void addLoveReply(LoveReply lovereply,LovePost lovepost,User user);
-	public void deleteLoveReply(int lreply_id);
-	public User getLoveReply(int lreply_id);
+	public void addLoveReply(LoveReply lovereply);
+	public void deleteLoveReply(String lreply_id);
+	public LoveReply getLoveReply(String lreply_id);
+	public List<LoveReply> getLoveReplyById(String love_id);
 	public void updateLoveReply(LoveReply lovereply);
 }

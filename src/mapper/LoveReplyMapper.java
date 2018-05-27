@@ -9,8 +9,9 @@ import pojo.User;
 
 public interface LoveReplyMapper {
 	public List<LoveReply> lovereplyList();
-	public void addLovereply(@Param("lovereply")LoveReply lovereply,@Param("lovepost")LovePost lovepost,@Param("user")User user);
-	public void deleteLoveReply(int lreply_id);
-	public User getLovereply(int lreply_id);
+	public void addLovereply(LoveReply lovereply);
+	public void deleteLoveReply(String lreply_id);
+	public LoveReply getLovereply(String lreply_id);
+	public List<LoveReply> getLoveReplyById(String love_id);
 	public void updateLovereply(LoveReply lovereply);
 }

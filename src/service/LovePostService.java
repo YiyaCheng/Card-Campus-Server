@@ -8,7 +8,7 @@ import pojo.User;
 public interface LovePostService {
 	public List<LovePost> lovepostList();
 	public void addLovePost(LovePost lovepost);
-	public void deleteLovePost(int love_id);
-	public User getLovePost(int love_id);
+	public void deleteLovePost(String love_id);
+	public LovePost getLovePost(String love_id);
 	public void updateLovePost(LovePost lovepost);
 }

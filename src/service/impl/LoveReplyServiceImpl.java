@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import mapper.LoveReplyMapper;
 import pojo.LovePost;
 import pojo.LoveReply;
+import pojo.QuestionReply;
 import pojo.User;
 import service.LoveReplyService;
 @Service
@@ -21,21 +22,27 @@ public class LoveReplyServiceImpl implements LoveReplyService {
 	}
 
 	@Override
-	public void addLoveReply(LoveReply lovereply,LovePost lovepost,User user) {
+	public void addLoveReply(LoveReply lovereply) {
 		// TODO Auto-generated method stub
-		loveReplyMapper.addLovereply(lovereply,lovepost,user);
+		loveReplyMapper.addLovereply(lovereply);
 	}
 
 	@Override
-	public void deleteLoveReply(int lreply_id) {
+	public void deleteLoveReply(String lreply_id) {
 		// TODO Auto-generated method stub
 		loveReplyMapper.deleteLoveReply(lreply_id);
 	}
 
 	@Override
-	public User getLoveReply(int lreply_id) {
+	public LoveReply getLoveReply(String lreply_id) {
 		// TODO Auto-generated method stub
 		return loveReplyMapper.getLovereply(lreply_id);
+	}
+	
+	@Override
+	public List<LoveReply> getLoveReplyById(String love_id) {
+		// TODO Auto-generated method stub
+		return loveReplyMapper.getLoveReplyById(love_id);
 	}
 
 	@Override

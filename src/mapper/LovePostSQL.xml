@@ -17,7 +17,7 @@
 	<delete id="deleteLovePost" parameterType="LovePost">
 		delete from love_post where love_id=#{love_id}
 	</delete>
-	<select id="getLovePost" parameterType="int" resultType="LovePost">
+	<select id="getLovePost" parameterType="String" resultType="LovePost">
 		select * from love_post where love_id=#{love_id}
 	</select>
 	<update id="updateLovePost" parameterType="LovePost">
