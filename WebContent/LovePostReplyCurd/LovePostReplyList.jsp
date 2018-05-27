@@ -156,11 +156,11 @@
         			<tbody>
         			<c:forEach items="${lovereply}" var="c" varStatus="st">
         				<tr>
-        					<td>${c.lreply_id}</td>
-            				<td>${c.lovepost.love_id}</td>
-           					<td>${c.user.user_nickname}</td>
-          					<td>${c.lreply_content}</td>
-          					<td>${c.lreply_time}</td>
+        					<td><font size="1px">${c.lreply_id}</td>
+            				<td><font size="1px">${c.lovepost.love_id}</td>
+           					<td><font size="1px">${c.user.user_nickname}</td>
+          					<td><font size="1px">${c.lreply_content}</td>
+          					<td><font size="1px">${c.lreply_time}</td>
           					<td>
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->
                				<a role="button" class="btn btn-danger btn-xs" href='deleteLoveReply?lreply_id=${c.lreply_id}'>

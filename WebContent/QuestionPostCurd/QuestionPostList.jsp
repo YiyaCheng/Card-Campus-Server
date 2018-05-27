@@ -160,12 +160,12 @@
         			<tbody>
         			<c:forEach items="${questionpost}" var="c" varStatus="st">
         				<tr>
-        					<td>${c.bpost_id}</td>
-            				<td>${c.user.user_nickname}</td>
+        					<td><font size="1px">${c.bpost_id}</td>
+            				<td><font size="1px">${c.user.user_nickname}</td>
             				<!-- 这样获取属性也可以<td>${c.user.getUser_sno()}</td> -->
-             				<td>${c.bpost_title}</td>
-           					<td>${c.bpost_content}</td>
-          					<td>${c.bpost_time}</td>
+             				<td><font size="1px">${c.bpost_title}</td>
+           					<td><font size="1px">${c.bpost_content}</td>
+          					<td><font size="1px">${c.bpost_time}</td>
           					<td>
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->
                				<a role="button" class="btn btn-danger btn-xs" href='deleteQuestionPost?bpost_id=${c.bpost_id}'>

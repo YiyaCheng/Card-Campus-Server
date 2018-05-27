@@ -152,19 +152,20 @@
             				<td>标题</td>
             				<td>类型</td>
             				<td>是否解决</td>
+            				<td>删除</td>
         				</tr> 
         			</thead>
         			<tbody>
         			<c:forEach items="${daifood}" var="c" varStatus="st">
         				<tr>
-        					<td>${c.dpost_id}</td>
-            				<td>${c.user.user_nickname}</td>
+        					<td><font size="1px">${c.dpost_id}</td>
+            				<td><font size="1px">${c.user.user_nickname}</td>
             				<!-- 这样获取属性也可以<td>${c.user.getUser_sno()}</td> -->
-             				<td>${c.dpost_time}</td>
-           					<td>${c.dpost_content}</td>
-          					<td>${c.dpost_title}</td>
-          					<td>${c.dpost_type}</td>
-          					<td>${c.is_solved}</td>
+             				<td><font size="1px">${c.dpost_time}</td>
+           					<td><font size="1px">${c.dpost_content}</td>
+          					<td><font size="1px">${c.dpost_title}</td>
+          					<td><font size="1px">${c.dpost_type}</td>
+          					<td><font size="1px">${c.is_solved}</td>
           					<td>
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->
                				<a role="button" class="btn btn-danger btn-xs" href='deleteDaifood?dpost_id=${c.dpost_id}'>

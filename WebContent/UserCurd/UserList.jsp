@@ -151,12 +151,12 @@
         			<tbody>
         			<c:forEach items="${user}" var="c" varStatus="st">
         				<tr>
-        					<td>${c.user_sno}</td>
-            				<td>${c.user_nickname}</td>
-             				<td>${c.user_avatar}</td>
-           					<td>${c.user_sex}</td>
-           					<td>${c.user_tel}</td>
-           					<td>${c.user_qq}</td>
+        					<td><font size="1px">${c.user_sno}</td>
+            				<td><font size="1px">${c.user_nickname}</td>
+             				<td><font size="1px">${c.user_avatar}</td>
+           					<td><font size="1px">${c.user_sex}</td>
+           					<td><font size="1px">${c.user_tel}</td>
+           					<td><font size="1px">${c.user_qq}</td>
           					<td>
               		<!-- deleteUser与UserCOntroller中注解的名字一致 -->
                				<a role="button" class="btn btn-danger btn-xs" href='deleteUser?user_sno=${c.user_sno}'>

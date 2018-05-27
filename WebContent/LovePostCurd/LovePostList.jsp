@@ -159,12 +159,12 @@
         			<tbody>
         			<c:forEach items="${lovepost}" var="c" varStatus="st">
         				<tr>
-        					<td>${c.love_id}</td>
-            				<td>${c.love_username}</td>
-             				<td>${c.is_anonymous}</td>
-           					<td>${c.love_content}</td>
-          					<td>${c.love_title}</td>
-          					<td>${c.love_time}</td>
+        					<td><font size="1px">${c.love_id}</td>
+            				<td><font size="1px">${c.love_username}</td>
+             				<td><font size="1px">${c.is_anonymous}</td>
+           					<td><font size="1px">${c.love_content}</td>
+          					<td><font size="1px">${c.love_title}</td>
+          					<td><font size="1px">${c.love_time}</td>
           					<td>
           					
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->

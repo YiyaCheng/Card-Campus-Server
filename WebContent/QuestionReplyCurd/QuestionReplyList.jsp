@@ -148,12 +148,12 @@
         			<tbody>
         			<c:forEach items="${questionreply}" var="c" varStatus="st">
         				<tr>
-        					<td>${c.breply_id}</td>
-            				<td>${c.questionPost.bpost_id}</td>
+        					<td><font size="1px">${c.breply_id}</td>
+            				<td><font size="1px">${c.questionPost.bpost_id}</td>
             				<!-- 这样获取属性也可以<td>${c.user.getUser_sno()}</td> -->
-             				<td>${c.user.user_nickname}</td>
-           					<td>${c.breply_content}</td>
-          					<td>${c.breply_time}</td>
+             				<td><font size="1px">${c.user.user_nickname}</td>
+           					<td><font size="1px">${c.breply_content}</td>
+          					<td><font size="1px">${c.breply_time}</td>
           					<td>
               		<!-- deleteBookPost与BookPostController中注解的名字一致 -->
                				<a role="button" class="btn btn-danger btn-xs" href='deleteQuestionReply?breply_id=${c.breply_id}'>
