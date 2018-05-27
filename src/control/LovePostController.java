@@ -140,15 +140,15 @@ public class LovePostController {
 	public void getLoveReplyNum(HttpServletRequest request, HttpServletResponse response){
 		
 		String love_id=request.getParameter("love_id");
-		System.out.println("kalskaoaos"+love_id);
+		//System.out.println("kalskaoaos"+love_id);
 		
 		List<LoveReply> allReply=loveReplyService.getLoveReplyById(love_id);
 		//jsonObject.put("lovereply",allReply);
 		
-		for(int i=0;i<allReply.size();i++) {
+		/*for(int i=0;i<allReply.size();i++) {
 			System.out.println(allReply.get(i).getLreply_content());
 			System.out.println(allReply.get(i).getLovepost().getLove_id());
-		}
+		}*/
 		
 		JSONArray arrayReply = JSONArray.fromObject(allReply);
 		

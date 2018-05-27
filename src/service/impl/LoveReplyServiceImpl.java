@@ -24,7 +24,7 @@ public class LoveReplyServiceImpl implements LoveReplyService {
 	@Override
 	public void addLoveReply(LoveReply lovereply) {
 		// TODO Auto-generated method stub
-		loveReplyMapper.addLovereply(lovereply);
+		loveReplyMapper.addLoveReply(lovereply);
 	}
 
 	@Override

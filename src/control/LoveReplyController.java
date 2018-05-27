@@ -95,8 +95,9 @@ public class LoveReplyController {
         String lreply_content = request.getParameter("lreply_content");
 		
         LovePost lovePost=lovePostService.getLovePost(love_id);
+        
         User user=userService.getUserBySno(user_sno);
-        time=time.substring(0,time.length()-2);
+        
         long time1 = Long.parseLong(time);
         Timestamp lreply_time = new Timestamp(time1);
         

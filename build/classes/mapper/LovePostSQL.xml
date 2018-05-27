@@ -18,7 +18,7 @@
 		delete from love_post where love_id=#{love_id}
 	</delete>
 	<select id="getLovePost" parameterType="String" resultType="LovePost">
-		select * from love_post where love_id=#{love_id}
+		select * from love_post where love_id=#{_parameter}
 	</select>
 	<update id="updateLovePost" parameterType="LovePost">
 		update love_post set love_username=#{love_username},is_anonymous=#{is_anonymous},love_content=#{love_content},love_title=#{love_title},love_time=#{love_time} where love_id=#{love_id}

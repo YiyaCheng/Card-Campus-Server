@@ -50,16 +50,17 @@
 	
 	<insert id="addLoveReply" parameterType="LoveReply">
 		insert into love_reply (lreply_id,love_id,user_sno,lreply_content,lreply_time) 
-		values(#{lreply_id},#{love_id},#{user.user_sno},#{lreply_content},#{lreply_time})
+		values(#{lreply_id},#{lovepost.love_id},#{user.user_sno},#{lreply_content},#{lreply_time})
 	</insert>
 	
 	<delete id="deleteLoveReply" parameterType="LoveReply">
 		delete from love_reply where lreply_id=#{lreply_id}
 	</delete>
+	<!-- 在使用mybaitis传参数的时候，如果仅传入一个类型为String的参数，那么在 xml文件中应该使用_parameter来代替参数名。 -->
 	<select id="getLoveReply" parameterType="String" resultType="LoveReply">
 		select *
 		from love_reply
-		where lreply_id=#{lreply_id}
+		where lreply_id=#{_parameter}
 	</select>
 	<update id="updateLoveReply" parameterType="LoveReply">
 		update love_reply set lreply_content=#{lreply_content},lreply_time=#{lreply_time} where lreply_id=#{lreply_id}
