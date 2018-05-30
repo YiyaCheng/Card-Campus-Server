@@ -23,19 +23,19 @@ public class BookPostServiceImpl implements BookPostService {
 	}
 
 	@Override
-	public void addBookPost(BookPost bookpost,User user) {
+	public void addBookPost(BookPost bookpost) {
 		// TODO Auto-generated method stub
-		bookpostMapper.addBookPost(bookpost, user);
+		bookpostMapper.addBookPost(bookpost);
 	}
 
 	@Override
-	public void deleteBookPost(int book_id) {
+	public void deleteBookPost(String book_id) {
 		// TODO Auto-generated method stub
 		bookpostMapper.deleteBookPost(book_id);
 	}
 
 	@Override
-	public BookPost getBookPost(int book_id) {
+	public BookPost getBookPost(String book_id) {
 		// TODO Auto-generated method stub
 		return bookpostMapper.getBookPost(book_id);
 	}

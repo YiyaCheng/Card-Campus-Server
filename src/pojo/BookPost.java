@@ -11,14 +11,22 @@ public class BookPost {
 	User user;
 	
 	//String user_sno;
-	int book_id;
+	String book_id;
 	String book_img;
 	String book_describe;
 	String book_title;
 	Timestamp book_time;
+	int is_sold;
 	
 	
 	
+	
+	public int getIs_sold() {
+		return is_sold;
+	}
+	public void setIs_sold(int is_sold) {
+		this.is_sold = is_sold;
+	}
 	public String getBook_title() {
 		return book_title;
 	}
@@ -33,10 +41,10 @@ public class BookPost {
 		this.user = user;
 	}
 	
-	public int getBook_id() {
+	public String getBook_id() {
 		return book_id;
 	}
-	public void setBook_id(int book_id) {
+	public void setBook_id(String book_id) {
 		this.book_id = book_id;
 	}
 	public String getBook_img() {

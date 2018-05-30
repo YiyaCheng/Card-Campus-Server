@@ -10,6 +10,7 @@
   <result column="book_title" property="book_title" /> 
   <result column="book_describe" property="book_describe" /> 
   <result column="book_time" property="book_time"/> 
+  <result column="is_sold" property="is_sold"/> 
   <!-- association处理has-a关系 --> 
   <!--注意：这种方式javaType必须指定，表示supervisor的类型是Teacher，否则会报错 --> 
   <association property="user" javaType="User"> 
@@ -17,9 +18,9 @@
    <result property="user_sno" column="user_sno"/> 
    <result property="user_nickname" column="user_nickname"/> 
    <result property="user_avatar" column="user_avatar"/> 
-   <result property="user_sex" column="user_sex"/> 
-   <result property="user_tel" column="user_tel"/> 
-   <result property="user_qq" column="user_qq"/> 
+   <result property="user_sex" column="user_sex"/>
+   <result property="user_tel" column="user_tel"/>
+   <result property="user_qq" column="user_qq"/>
   </association> 
  </resultMap>
     <!-- 不要用resultType了，用resultMap -->
@@ -27,14 +28,14 @@
 		select * 
 		from book_post,user_info
 		where book_post.user_sno = user_info.user_sno
-		order by book_id
+		order by book_time desc
 	</select>
 	
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
 	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
-	<insert id="addBookPost">
-		insert into book_post (book_id,book_img,user_sno,book_describe,book_time,book_title) 
-		values(#{bookpost.book_id},#{bookpost.book_img},#{user.user_sno},#{bookpost.book_describe},#{bookpost.book_time},#{bookpost.book_title})
+	<insert id="addBookPost" parameterType="BookPost">
+		insert into book_post (book_id,book_img,user_sno,book_describe,book_time,book_title,is_sold) 
+		values(#{book_id},#{book_img},#{user.user_sno},#{book_describe},#{book_time},#{book_title},#{is_sold})
 	</insert>
 	
 	<delete id="deleteBookPost" parameterType="BookPost">
@@ -44,6 +45,6 @@
 		select * from book_post where book_id=#{book_id}
 	</select>
 	<update id="updateBookPost" parameterType="BookPost">
-		update book_post set book_img=#{book_img},book_describe=#{book_describe},book_time=#{book_time},book_title=#{book_title} where book_id=#{book_id}
+		update book_post set book_describe=#{book_describe},book_time=#{book_time},book_title=#{book_title},is_sold=#{is_sold} where book_id=#{book_id}
 	</update>
 </mapper>

@@ -11,12 +11,17 @@ import pojo.User;
 public interface QuestionReplyMapper {
 	public List<QuestionReply> questionreplyList();
 	public void addQuestionReply(QuestionReply questionreply);
-	public void deleteQuestionReply(int breply_id);
-	public QuestionReply getQuestionReply(int breply_id);
+	public void deleteQuestionReply(String breply_id);
+	public QuestionReply getQuestionReply(String breply_id);
 	public void updateQuestionReply(QuestionReply questionreply);
 	/**
 	 * 通过bpost_id取得所有一个百事通问题的所有回复数据
 	 * @return
 	 */
-	public List<QuestionReply> getReplysByPostId(int bpost_id);
+	public List<QuestionReply> getReplysByPostId(String bpost_id);
+	
+	/**
+	 * 重新写的
+	 */
+	public int getReplyNumByPostId(String bpost_id);
 }

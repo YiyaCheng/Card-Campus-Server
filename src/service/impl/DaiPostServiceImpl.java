@@ -43,13 +43,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void deleteDaike(int dpost_id) {
+	public void deleteDaike(String dpost_id) {
 		// TODO Auto-generated method stub
 		daipostMapper.deleteDaike(dpost_id);
 	}
 
 	@Override
-	public DaiPost getDaike(int dpost_id) {
+	public DaiPost getDaike(String dpost_id) {
 		// TODO Auto-generated method stub
 		return daipostMapper.getDaike(dpost_id);
 	}
@@ -76,13 +76,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void deleteDaifood(int dpost_id) {
+	public void deleteDaifood(String dpost_id) {
 		// TODO Auto-generated method stub
 		daipostMapper.deleteDaifood(dpost_id);
 	}
 
 	@Override
-	public DaiPost getDaifood(int dpost_id) {
+	public DaiPost getDaifood(String dpost_id) {
 		// TODO Auto-generated method stub
 		return daipostMapper.getDaifood(dpost_id);
 	}
@@ -109,13 +109,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void deleteDaideliver(int dpost_id) {
+	public void deleteDaideliver(String dpost_id) {
 		// TODO Auto-generated method stub
 		daipostMapper.deleteDaideliver(dpost_id);
 	}
 
 	@Override
-	public DaiPost getDaideliver(int dpost_id) {
+	public DaiPost getDaideliver(String dpost_id) {
 		// TODO Auto-generated method stub
 		return daipostMapper.getDaideliver(dpost_id);
 	}
@@ -142,13 +142,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void deleteDaiactivity(int dpost_id) {
+	public void deleteDaiactivity(String dpost_id) {
 		// TODO Auto-generated method stub
 		daipostMapper.deleteDaiactivity(dpost_id);
 	}
 
 	@Override
-	public DaiPost getDaiactivity(int dpost_id) {
+	public DaiPost getDaiactivity(String dpost_id) {
 		// TODO Auto-generated method stub
 		return daipostMapper.getDaiactivity(dpost_id);
 	}
@@ -175,13 +175,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void deleteDaiwalk(int dpost_id) {
+	public void deleteDaiwalk(String dpost_id) {
 		// TODO Auto-generated method stub
 		daipostMapper.deleteDaiwalk(dpost_id);
 	}
 
 	@Override
-	public DaiPost getDaiwalk(int dpost_id) {
+	public DaiPost getDaiwalk(String dpost_id) {
 		// TODO Auto-generated method stub
 		return daipostMapper.getDaiwalk(dpost_id);
 	}
@@ -208,13 +208,13 @@ public class DaiPostServiceImpl implements DaiPostService {
 	}
 
 	@Override
-	public void deleteDaibuy(int dpost_id) {
+	public void deleteDaibuy(String dpost_id) {
 		// TODO Auto-generated method stub
 		daipostMapper.deleteDaibuy(dpost_id);
 	}
 
 	@Override
-	public DaiPost getDaibuy(int dpost_id) {
+	public DaiPost getDaibuy(String dpost_id) {
 		// TODO Auto-generated method stub
 		return daipostMapper.getDaibuy(dpost_id);
 	}

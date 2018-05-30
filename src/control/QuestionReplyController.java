@@ -45,7 +45,7 @@ public class QuestionReplyController {
 	}
 	
 	@RequestMapping("deleteQuestionReply")
-	public ModelAndView deleteQuestionReply(int breply_id) {
+	public ModelAndView deleteQuestionReply(String breply_id) {
 		ModelAndView mav=new ModelAndView();
 		questionReplyService.deleteQuestionReply(breply_id);
 		//插入完成后马上回到list列表
@@ -122,10 +122,8 @@ public class QuestionReplyController {
         String time = request.getParameter("breply_time");
         String breply_content = request.getParameter("breply_content");
          
-        
-        int post_id = Integer.parseInt(bpost_id);
-        int reply_id = Integer.parseInt(breply_id);
-        QuestionPost questionpost = questionPostService.getQuestionPost(post_id);
+   
+        QuestionPost questionpost = questionPostService.getQuestionPost(bpost_id);
         User user = userService.getUserBySno(user_sno);
         
         long time1 = Long.parseLong(time);
@@ -133,13 +131,58 @@ public class QuestionReplyController {
       
         QuestionReply questionreply = new QuestionReply();
         questionreply.setBreply_content(breply_content);
-        questionreply.setBreply_id(reply_id);
+        questionreply.setBreply_id(breply_id);
         questionreply.setBreply_time(post_time);
         questionreply.setQuestionPost(questionpost);
         questionreply.setUser(user);
         
         questionReplyService.addQuestionReply(questionreply);
          
+
+    }
+    
+    @RequestMapping("getBSTReplysByPostId")
+    public void getBSTReplysByPostId(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        String bpost_id = request.getParameter("bpost_id");
+        List<QuestionReply> allQuestionReplys=questionReplyService.getReplysByPostId(bpost_id);
+        JSONArray arrayReplys = JSONArray.fromObject(allQuestionReplys);
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = arrayReplys.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 
     }
 }

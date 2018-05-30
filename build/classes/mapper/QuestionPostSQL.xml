@@ -21,14 +21,29 @@
    <result property="user_qq" column="user_qq"/> 
   </association> 
  </resultMap>
+ 
+ <resultMap type="String" id="questionpostIdMap">
+ 	<result column="bpost_id" property="bpost_id" /> 
+ </resultMap>
+ 
     <!-- 不要用resultType了，用resultMap -->
 	<select id="questionpostList" resultMap="questionpostResultMap">
 		select * 
 		from question_post,user_info
 		where question_post.user_sno = user_info.user_sno
-		order by bpost_id
+		order by bpost_time desc
 	</select>
 	
+	
+	<select id="questionpostIdList" resultMap="questionpostIdMap">
+		select bpost_id from question_post
+	</select>
+	
+	<select id="userBSTPostNum" parameterType="User" resultType="Integer">
+		select count(*)
+		from question_post
+		where user_sno = #{user_sno}
+	</select>
 	
 	<!-- 这里不要parameterType啦，用注解方式实现多参数！！在Mapper中进行注解啦！！ -->
 	<!-- 在mapper.xml中使用的时候，#{对象别名.属性名}，如#{user.id} -->
@@ -41,8 +56,8 @@
 	<delete id="deleteQuestionPost" parameterType="QuestionPost">
 		delete from question_post where bpost_id=#{bpost_id}
 	</delete>
-	<select id="getQuestionPost" parameterType="int" resultType="QuestionPost">
-		select * from question_post where bpost_id=#{bpost_id}
+	<select id="getQuestionPost" parameterType="String" resultType="QuestionPost">
+		select * from question_post where bpost_id=#{_parameter}
 	</select>
 	<update id="updateQuestionPost" parameterType="QuestionPost"> 
 		update question_post set bpost_content=#{bpost_content},bpost_title=#{bpost_title},bpost_time=#{bpost_time} where bpost_id=#{bpost_id}

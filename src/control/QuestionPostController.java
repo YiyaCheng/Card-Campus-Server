@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,7 @@ public class QuestionPostController {
 	}
 	
 	@RequestMapping("deleteQuestionPost")
-	public ModelAndView deleteQuestionPost(int bpost_id) {
+	public ModelAndView deleteQuestionPost(String bpost_id) {
 		ModelAndView mav=new ModelAndView();
 		questionPostService.deleteQuestionPost(bpost_id);
 		//插入完成后马上回到list列表
@@ -120,9 +121,9 @@ public class QuestionPostController {
         
         //获取android客户端传递值的方式：在这里拿到需要查找回复数的百事通问题id
         String bpost_id=request.getParameter("bpost_id");
-        int post_id = Integer.parseInt(bpost_id);
+         
         
-        List<QuestionReply> allReply=questionReplyService.getReplysByPostId(post_id);
+        List<QuestionReply> allReply=questionReplyService.getReplysByPostId(bpost_id);
         JSONArray arrayReply = JSONArray.fromObject(allReply);
         /*
 		 * 先封装成text即字符串 再转换成JSON
@@ -174,9 +175,9 @@ public class QuestionPostController {
         
         //获取android客户端传递值的方式：在这里拿到需要查找回复数的百事通问题id
         String bpost_id=request.getParameter("bpost_id");
-        int post_id = Integer.parseInt(bpost_id);
+         
         
-        questionPostService.deleteQuestionPost(post_id);
+        questionPostService.deleteQuestionPost(bpost_id);
         
     }
     
@@ -195,7 +196,7 @@ public class QuestionPostController {
         String bpost_content = request.getParameter("bpost_content");
         String bpost_title = request.getParameter("bpost_title");
         
-        int post_id = Integer.parseInt(bpost_id);
+         
         User user = userService.getUserBySno(user_sno);
         
         long time1 = Long.parseLong(time);
@@ -203,7 +204,7 @@ public class QuestionPostController {
       
         QuestionPost questionpost = new QuestionPost();
         questionpost.setBpost_content(bpost_content);
-        questionpost.setBpost_id(post_id);
+        questionpost.setBpost_id(bpost_id);
         questionpost.setBpost_time(post_time);
         questionpost.setBpost_title(bpost_title);
         questionpost.setUser(user);
@@ -230,7 +231,7 @@ public class QuestionPostController {
         String bpost_content = request.getParameter("bpost_content");
         String bpost_title = request.getParameter("bpost_title");
         
-        int post_id = Integer.parseInt(bpost_id);
+         
         User user = userService.getUserBySno(user_sno);
         
         long time1 = Long.parseLong(time);
@@ -238,7 +239,7 @@ public class QuestionPostController {
       
         QuestionPost questionpost = new QuestionPost();
         questionpost.setBpost_content(bpost_content);
-        questionpost.setBpost_id(post_id);
+        questionpost.setBpost_id(bpost_id);
         questionpost.setBpost_time(post_time);
         questionpost.setBpost_title(bpost_title);
         questionpost.setUser(user);
@@ -249,4 +250,119 @@ public class QuestionPostController {
         System.out.println("？？？？");
         
     }
+    
+    
+    /**
+     * 重新写过，理清逻辑
+     */
+    /**
+	 * 客户端
+	 * 得到所有帖子的回复数量
+	 */
+	//处理来自客户端的请求，并将json格式的数据处理结果返回。
+    @RequestMapping("getBSTPostReplyNum")
+    public void getBSTPostReplyNum(HttpServletRequest request, HttpServletResponse response){
+        JSONObject jsonObject = new JSONObject();
+        
+        
+        List<String> questionPostIdList = questionPostService.questionpostIdList();
+        HashMap<String,Integer> questionReplyNumMap = new HashMap<>();
+        for(int i=0;i<questionPostIdList.size();i++) {
+        	String bpost_id = questionPostIdList.get(i);
+        	int num = questionReplyService.getReplyNumByPostId(bpost_id);
+        	questionReplyNumMap.put(bpost_id, num);
+        }
+        System.out.println(questionReplyNumMap.toString());
+        jsonObject.put("ReplyNumMap", questionReplyNumMap);
+        
+         
+        /*//获取android客户端传递值的方式：在这里拿到需要查找回复数的百事通问题id
+        String bpost_id=request.getParameter("bpost_id");
+        int post_id = Integer.parseInt(bpost_id);
+        
+        List<QuestionReply> allReply=questionReplyService.getReplysByPostId(post_id);
+        JSONArray arrayReply = JSONArray.fromObject(allReply);*/
+        /*
+		 * 先封装成text即字符串 再转换成JSON
+		 * 安卓Activity的中文显示只认UTF-8！GBK不可以哦
+		 * 这里是指在客户端显示的编码格式
+		 */
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = jsonObject.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+
+    }
+    
+    @RequestMapping("userBSTPostNum")
+	public void userBSTPostNum(HttpServletRequest request, HttpServletResponse response) {
+		
+		JSONObject jsonObject = new JSONObject();
+		String usersno = request.getParameter("getUserPostNum_user_sno");
+		 
+		 
+        int count=questionPostService.userBSTPostNum(usersno);
+        jsonObject.put("currentUserPostNum", count);
+		response.setContentType("text/json;charset=utf-8");
+		
+		/*
+		 * 这里是指在网络传输过程中的编码方式
+		 */
+		response.setCharacterEncoding("utf-8");
+		
+		/*
+		 * 用管道流传东西啦
+		 * 把JSON转换成byte再传
+		 * 编码方式UTF-8！
+		 */
+		try {
+			byte[] bytes = jsonObject.toString().getBytes("utf-8");
+			
+			//把字节数组写入输出流
+			response.getOutputStream().write(bytes);
+			
+			//设置传输内容的长度，方便response处理
+			response.setContentLength(bytes.length);
+			
+			//清空缓存（把缓存里的全部发出去
+			response.getOutputStream().flush();
+			
+			//用完要关啦
+			response.getOutputStream().close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	}
+    
+    
+    
 }

@@ -19,6 +19,11 @@ public class QuestionReplyServiceImpl implements QuestionReplyService {
 		// TODO Auto-generated method stub
 		return questionreplyMapper.questionreplyList();
 	}
+	
+	public int getReplyNumByPostId(String bpost_id) {
+		return questionreplyMapper.getReplyNumByPostId(bpost_id);
+	}
+	
 
 	@Override
 	public void addQuestionReply(QuestionReply questionreply) {
@@ -27,13 +32,13 @@ public class QuestionReplyServiceImpl implements QuestionReplyService {
 	}
 
 	@Override
-	public void deleteQuestionReply(int breply_id) {
+	public void deleteQuestionReply(String breply_id) {
 		// TODO Auto-generated method stub
 		questionreplyMapper.deleteQuestionReply(breply_id);
 	}
 
 	@Override
-	public QuestionReply getQuestionReply(int breply_id) {
+	public QuestionReply getQuestionReply(String breply_id) {
 		// TODO Auto-generated method stub
 		return questionreplyMapper.getQuestionReply(breply_id);
 	}
@@ -45,7 +50,7 @@ public class QuestionReplyServiceImpl implements QuestionReplyService {
 	}
 	
 	
-	public List<QuestionReply> getReplysByPostId(int bpost_id){
+	public List<QuestionReply> getReplysByPostId(String bpost_id){
 		return questionreplyMapper.getReplysByPostId(bpost_id);
 	}
 

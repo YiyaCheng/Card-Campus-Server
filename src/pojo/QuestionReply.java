@@ -3,15 +3,15 @@ package pojo;
 import java.sql.Timestamp;
 
 public class QuestionReply {
-	int breply_id;
+	String breply_id;
 	QuestionPost questionPost;
 	User user;
 	String breply_content;
 	Timestamp breply_time;
-	public int getBreply_id() {
+	public String getBreply_id() {
 		return breply_id;
 	}
-	public void setBreply_id(int breply_id) {
+	public void setBreply_id(String breply_id) {
 		this.breply_id = breply_id;
 	}
 	public QuestionPost getQuestionPost() {

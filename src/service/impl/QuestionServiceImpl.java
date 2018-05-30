@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import mapper.QuestionPostMapper;
 import pojo.QuestionPost;
+import pojo.QuestionReply;
 import service.QuestionPostService;
 @Service
 public class QuestionServiceImpl implements QuestionPostService {
@@ -18,6 +19,14 @@ public class QuestionServiceImpl implements QuestionPostService {
 		// TODO Auto-generated method stub
 		return questionpostMapper.questionpostList();
 	}
+	
+	public List<String> questionpostIdList() {
+		return questionpostMapper.questionpostIdList();
+	}
+	
+	public int userBSTPostNum(String user_sno) {
+		return questionpostMapper.userBSTPostNum(user_sno);
+	}
 
 	@Override
 	public void addQuestionPost(QuestionPost questionpost) {
@@ -26,13 +35,13 @@ public class QuestionServiceImpl implements QuestionPostService {
 	}
 
 	@Override
-	public void deleteQuestionPost(int bpost_id) {
+	public void deleteQuestionPost(String bpost_id) {
 		// TODO Auto-generated method stub
 		questionpostMapper.deleteQuestionPost(bpost_id);
 	}
 
 	@Override
-	public QuestionPost getQuestionPost(int bpost_id) {
+	public QuestionPost getQuestionPost(String bpost_id) {
 		// TODO Auto-generated method stub
 		return questionpostMapper.getQuestionPost(bpost_id);
 	}
@@ -42,5 +51,7 @@ public class QuestionServiceImpl implements QuestionPostService {
 		// TODO Auto-generated method stub
 		questionpostMapper.updateQuestionPost(questionpost);
 	}
+	
+	
 
 }

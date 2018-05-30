@@ -45,10 +45,18 @@
 	</select>
 	
 	
-	<select id="getReplysByPostId" parameterType="QuestionPost" resultMap="questionreplyResultMap">
+	<select id="getReplysByPostId" parameterType="String" resultMap="questionreplyResultMap">
 		select *
-	    from question_reply,user_info	
-	    where question_reply.user_sno = user_info.user_sno and bpost_id = #{bpost_id}
+	    from question_reply,user_info,question_post
+	    where question_reply.user_sno = user_info.user_sno and question_post.bpost_id=question_reply.bpost_id and question_reply.bpost_id = #{_parameter}
+		order by question_reply.breply_time desc
+	</select>
+	
+	<select id="getReplyNumByPostId" parameterType="String" resultType="Integer">
+		select count(*)
+		from question_reply
+		where bpost_id = #{_parameter}
+		order by breply_time 
 	</select>
 	
 	
