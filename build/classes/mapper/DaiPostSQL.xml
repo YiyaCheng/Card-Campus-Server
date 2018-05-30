@@ -62,8 +62,8 @@
 		delete from dai_post where dpost_id=#{dpost_id}
 	</delete>
 	
-	<select id="getDaike" parameterType="int" resultType="DaiPost">
-		select * from dai_post where dpost_id=#{dpost_id}
+	<select id="getDaike" parameterType="String" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{_parameter}
 	</select>
 	
 	<update id="updateDaike" parameterType="DaiPost">
@@ -86,8 +86,8 @@
 		delete from dai_post where dpost_id=#{dpost_id}
 	</delete>
 	
-	<select id="getDaifood" parameterType="int" resultType="DaiPost">
-		select * from dai_post where dpost_id=#{dpost_id}
+	<select id="getDaifood" parameterType="String" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{_parameter}
 	</select>
 	
 	<update id="updateDaifood" parameterType="DaiPost">
@@ -110,8 +110,8 @@
 		delete from dai_post where dpost_id=#{dpost_id}
 	</delete>
 	
-	<select id="getDaideliver" parameterType="int" resultType="DaiPost">
-		select * from dai_post where dpost_id=#{dpost_id}
+	<select id="getDaideliver" parameterType="String" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{_parameter}
 	</select>
 	
 	<update id="updateDaideliver" parameterType="DaiPost">
@@ -134,8 +134,8 @@
 		delete from dai_post where dpost_id=#{dpost_id}
 	</delete>
 	
-	<select id="getDaiactivity" parameterType="int" resultType="DaiPost">
-		select * from dai_post where dpost_id=#{dpost_id}
+	<select id="getDaiactivity" parameterType="String" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{_parameter}
 	</select>
 	
 	<update id="updateDaiactivity" parameterType="DaiPost">
@@ -158,8 +158,8 @@
 		delete from dai_post where dpost_id=#{dpost_id}
 	</delete>
 	
-	<select id="getDaiwalk" parameterType="int" resultType="DaiPost">
-		select * from dai_post where dpost_id=#{dpost_id}
+	<select id="getDaiwalk" parameterType="String" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{_parameter}
 	</select>
 	
 	<update id="updateDaiwalk" parameterType="DaiPost">
@@ -182,8 +182,8 @@
 		delete from dai_post where dpost_id=#{dpost_id}
 	</delete>
 	
-	<select id="getDaibuy" parameterType="int" resultType="DaiPost">
-		select * from dai_post where dpost_id=#{dpost_id}
+	<select id="getDaibuy" parameterType="String" resultType="DaiPost">
+		select * from dai_post where dpost_id=#{_parameter}
 	</select>
 	
 	<update id="updateDaibuy" parameterType="DaiPost">

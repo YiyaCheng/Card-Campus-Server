@@ -3,7 +3,7 @@ package pojo;
 import java.sql.Timestamp;
 
 public class DaiPost {
-	int dpost_id;
+	String dpost_id;
 	String dpost_content;
 	String dpost_title;
 	Timestamp dpost_time;
@@ -17,10 +17,11 @@ public class DaiPost {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getDpost_id() {
+	
+	public String getDpost_id() {
 		return dpost_id;
 	}
-	public void setDpost_id(int dpost_id) {
+	public void setDpost_id(String dpost_id) {
 		this.dpost_id = dpost_id;
 	}
 	public String getDpost_content() {

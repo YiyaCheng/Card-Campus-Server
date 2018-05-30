@@ -124,7 +124,7 @@ public class DaiPostController {
         String dpost_title = request.getParameter("dpost_title");
         String is_solved=request.getParameter("is_solved");
         
-        int post_id = Integer.parseInt(dpost_id);
+        //int post_id = Integer.parseInt(dpost_id);
         int solve_state = Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         
@@ -133,7 +133,7 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solve_state);
@@ -165,7 +165,7 @@ public class DaiPostController {
 	}
 	
 	@RequestMapping("deleteDaike")
-	public ModelAndView deleteDaike(int dpost_id) {
+	public ModelAndView deleteDaike(String dpost_id) {
 		ModelAndView mav=new ModelAndView();
 		daiPostService.deleteDaike(dpost_id);
 		//插入完成后马上回到list列表
@@ -245,7 +245,6 @@ public class DaiPostController {
         String is_solved = request.getParameter("is_solved");
         
         
-        int post_id = Integer.parseInt(dpost_id);
         int solved=Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         //System.out.println("QQ:"+user.getUser_qq());
@@ -255,7 +254,7 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solved);
@@ -282,7 +281,7 @@ public class DaiPostController {
 	}
 	
 	@RequestMapping("deleteDaifood")
-	public ModelAndView deleteDaifood(int dpost_id) {
+	public ModelAndView deleteDaifood(String dpost_id) {
 		ModelAndView mav=new ModelAndView();
 		daiPostService.deleteDaifood(dpost_id);
 		//插入完成后马上回到list列表
@@ -350,7 +349,7 @@ public class DaiPostController {
         String is_solved = request.getParameter("is_solved");
         
         
-        int post_id = Integer.parseInt(dpost_id);
+        //int post_id = Integer.parseInt(dpost_id);
         int solved=Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         //System.out.println("QQ:"+user.getUser_qq());
@@ -360,7 +359,7 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solved);
@@ -388,7 +387,7 @@ public class DaiPostController {
 	}
 	
 	@RequestMapping("deleteDaideliver")
-	public ModelAndView deleteDaideliver(int dpost_id) {
+	public ModelAndView deleteDaideliver(String dpost_id) {
 		ModelAndView mav=new ModelAndView();
 		daiPostService.deleteDaideliver(dpost_id);
 		//插入完成后马上回到list列表
@@ -457,7 +456,7 @@ public class DaiPostController {
         String is_solved = request.getParameter("is_solved");
         
         
-        int post_id = Integer.parseInt(dpost_id);
+        //int post_id = Integer.parseInt(dpost_id);
         int solved=Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         //System.out.println("QQ:"+user.getUser_qq());
@@ -467,7 +466,7 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solved);
@@ -492,7 +491,7 @@ public class DaiPostController {
 	}
 	
 	@RequestMapping("deleteDaiactivity")
-	public ModelAndView deleteDaiactivity(int dpost_id) {
+	public ModelAndView deleteDaiactivity(String dpost_id) {
 		ModelAndView mav=new ModelAndView();
 		daiPostService.deleteDaiactivity(dpost_id);
 		//插入完成后马上回到list列表
@@ -560,7 +559,7 @@ public class DaiPostController {
         String is_solved = request.getParameter("is_solved");
         
         
-        int post_id = Integer.parseInt(dpost_id);
+        //int post_id = Integer.parseInt(dpost_id);
         int solved=Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         //System.out.println("QQ:"+user.getUser_qq());
@@ -570,7 +569,8 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        //daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solved);
@@ -596,7 +596,7 @@ public class DaiPostController {
 	}
 	
 	@RequestMapping("deleteDaiwalk")
-	public ModelAndView deleteDaiwalk(int dpost_id) {
+	public ModelAndView deleteDaiwalk(String dpost_id) {
 		ModelAndView mav=new ModelAndView();
 		daiPostService.deleteDaiwalk(dpost_id);
 		//插入完成后马上回到list列表
@@ -665,7 +665,7 @@ public class DaiPostController {
         String is_solved = request.getParameter("is_solved");
         
         
-        int post_id = Integer.parseInt(dpost_id);
+        //int post_id = Integer.parseInt(dpost_id);
         int solved=Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         //System.out.println("QQ:"+user.getUser_qq());
@@ -675,7 +675,7 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solved);
@@ -700,7 +700,7 @@ public class DaiPostController {
 	}
 	
 	@RequestMapping("deleteDaibuy")
-	public ModelAndView deleteDaibuy(int dpost_id) {
+	public ModelAndView deleteDaibuy(String dpost_id) {
 		ModelAndView mav=new ModelAndView();
 		daiPostService.deleteDaibuy(dpost_id);
 		//插入完成后马上回到list列表
@@ -768,7 +768,7 @@ public class DaiPostController {
         String is_solved = request.getParameter("is_solved");
         
         
-        int post_id = Integer.parseInt(dpost_id);
+        //int post_id = Integer.parseInt(dpost_id);
         int solved=Integer.parseInt(is_solved);
         User user = userService.getUserBySno(user_sno);
         //System.out.println("QQ:"+user.getUser_qq());
@@ -778,7 +778,7 @@ public class DaiPostController {
       
         DaiPost daipost = new DaiPost();
         daipost.setDpost_content(dpost_content);
-        daipost.setDpost_id(post_id);
+        daipost.setDpost_id(dpost_id);
         daipost.setDpost_time(post_time);
         daipost.setDpost_title(dpost_title);
         daipost.setIs_solved(solved);
